@@ -17,7 +17,7 @@
   src:url('../fonts/ProximaNova-Light.otf');
 }
 
-*{ outline:1px solid rgb(0,0,0); }
+//*{ outline:1px solid rgb(0,0,0); }
 
 #website{
   width:960px;
@@ -32,7 +32,16 @@
     .logotipo{
       width:350px; height:200px;
       float:left;
-    }
+
+      a{
+        border:0;
+        outline:0;
+        img{
+          margin:40px 0 0 40px;
+          position:absolute;
+        }
+      }
+    } // # Logotipo
 
     .menu{
       width:610px;
@@ -42,9 +51,11 @@
 
       ul{
         li{
-          padding:20px 15px 20px 15px;
+          padding:20px 15px 0 15px;
           border-radius:5px 5px 0 0;
           display:inline-block;
+          -webkit-transition:all 0.3s linear;
+          transition:all 0.3s linear;
 
           a{
             font-size:18px;
@@ -55,7 +66,6 @@
             transition:all 0.3s linear;
           }
 
-          a:hover{ color:rgb(80,80,80); }
 
           ul{
             display:none;
@@ -82,8 +92,71 @@
 
         li:hover{
           background:rgb(240,240,240);
+
+          a{ color:rgb(80,80,80); }
         }
       }
     } // # Menu
   } // # Cabeçalho
+
+  .slides{
+    width:960px; height:400px;
+    background:rgb(227,227,227);
+    float:left;
+  } // # Slides
+
+  .ofertas{
+    width:880px;
+    float:left;
+    box-shadow:0 0 20px rgb(230,230,230);
+    margin:0 0 0 19px;
+    padding:30px 20px 20px 20px;
+
+    .cabecalho-secao{
+      font-size:25px;
+      font-weight:bold;
+      color:rgb(27,27,27);
+      margin:0 0 30px 0;
+    }
+
+    .oferta{
+      width:220px; height:150px;
+      float:left;
+      border-bottom:2px solid rgb(245,245,245);
+
+      .imagem-produto{
+        width:220px; height:150px;
+        overflow:hidden;
+        position:absolute;
+        z-index:-1;
+
+        img{ padding:0 20px; }
+      }
+
+      .informacao{
+        width:110px; height:120px;
+        padding:15px;
+        margin:0 0 0 80px;
+        background:rgba(245,245,245,0.9);
+        
+        .nome-produto{
+          height:65px;
+          overflow:hidden;
+
+          p{ font:20px ProximaLight,Arial,sans-serif; }
+        }
+
+        .preco{
+          margin:20px 0 0 0;
+
+          p{
+            font:bold 40px ProximaLight,Arial,sans-serif;
+            color:rgb(207,0,0);
+
+            span{ font-size:20px; }
+          }
+        }
+      } // # Informação
+    } // # Oferta
+  } // # Ofertas
 } // # Website
