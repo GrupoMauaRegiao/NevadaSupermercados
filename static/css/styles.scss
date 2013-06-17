@@ -108,9 +108,9 @@
   .ofertas{
     width:880px;
     float:left;
-    box-shadow:0 0 20px rgb(230,230,230);
-    margin:0 0 0 19px;
-    padding:30px 20px 20px 20px;
+    box-shadow:0 -10px 20px rgb(230,230,230);
+    margin:0 0 0 20px;
+    padding:30px 20px 0 20px;
 
     .cabecalho-secao{
       font-size:25px;
@@ -159,4 +159,36 @@
       } // # Informação
     } // # Oferta
   } // # Ofertas
+
+  .multimidia{
+    width:880px; height:300px;
+    float:left;
+    margin:0 0 0 20px;
+    padding:20px;
+
+    .jornal{
+      width:600px; height:300px;
+      float:left;
+      margin:0 20px 0 0;
+      background:rgb(204,204,204);
+    }
+
+    .videos{
+      width:260px;
+      height:300px;
+      float:left;
+
+      .cabecalho-secao{
+        height:60px;
+        background:rgb(240,240,240);
+
+        h2{
+          font-weight:bold;
+          font-size:26px;
+          color:rgb(50,71,122);
+          padding:20px;
+        }
+      }
+    } // # Vídeos
+  } // # Multimídia
 } // # Website
