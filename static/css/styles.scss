@@ -36,6 +36,7 @@
       a{
         border:0;
         outline:0;
+
         img{
           margin:40px 0 0 40px;
           position:absolute;
@@ -172,9 +173,7 @@
       margin:0 20px 0 0;
       background:rgb(204,204,204);
 
-      .issuuembed{
-        width:600px; height:300px;
-      }
+      .issuuembed{ width:600px; height:300px; }
     }
 
     .videos{
@@ -217,7 +216,7 @@
   }
 
   .campanhas{
-    width:880px; height:200px;
+    width:880px; height:250px;
     float:left;
     margin:0 0 0 20px;
     padding:20px 20px 0 20px;
@@ -273,5 +272,36 @@
         transform:translateY(115px);
       }
     }
+
+    .sombra-lateral{
+      width:45px; height:176px;
+      float:left;
+      background:transparent
+                 url('../imagens/sombra-lateral.png')
+                 right top no-repeat;
+    }
+
+    .cartao{
+      width:215px;
+      padding:0 0 0 10px;
+      float:left;
+
+      .animacao-cartao{ height:145px; }
+
+      .informacao{
+        p:nth-child(1){
+          font-size:26px;
+          color:rgb(51,71,125);
+
+          span{ font-weight:bold; }
+        }
+
+        p:nth-child(2){
+          margin:10px 0 0 0;
+          font-size:20px;
+          color:rgb(132,132,132);
+        }
+      }
+    } // # Cartão
   } // # Campanhas
 } // # Website
