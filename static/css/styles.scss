@@ -17,7 +17,52 @@
   src:url('../fonts/ProximaNova-Light.otf');
 }
 
-//*{ outline:1px solid rgb(0,0,0); }
+/* Animação cartão */
+@keyframes girarCartao{
+  0% {
+    background:transparent
+               url('../imagens/animacao-cartao/01.png')
+               left top no-repeat;
+  }
+  25% {
+    background:transparent
+               url('../imagens/animacao-cartao/02.png')
+               left top no-repeat;
+  }
+  50% {
+    background:transparent
+               url('../imagens/animacao-cartao/03.png')
+               left top no-repeat;
+  }
+  75% {
+    background:transparent
+               url('../imagens/animacao-cartao/04.png')
+               left top no-repeat;
+  }
+}
+
+@-webkit-keyframes girarCartao{
+  0% {
+    background:transparent
+               url('../imagens/animacao-cartao/01.png')
+               left top no-repeat;
+  }
+  25% {
+    background:transparent
+               url('../imagens/animacao-cartao/02.png')
+               left top no-repeat;
+  }
+  50% {
+    background:transparent
+               url('../imagens/animacao-cartao/03.png')
+               left top no-repeat;
+  }
+  75% {
+    background:transparent
+               url('../imagens/animacao-cartao/04.png')
+               left top no-repeat;
+  }
+}
 
 #website{
   width:960px;
@@ -286,7 +331,17 @@
       padding:0 0 0 10px;
       float:left;
 
-      .animacao-cartao{ height:145px; }
+      .animacao-cartao{
+        background:transparent
+                   url('../imagens/animacao-cartao/01.png')
+                   left top no-repeat;
+        height:145px;
+      }
+
+      .animacao-cartao:hover{
+        animation:girarCartao 0.5s linear 0s;
+        -webkit-animation:girarCartao 0.5s linear 0s;
+      }
 
       .informacao{
         p:nth-child(1){
@@ -304,4 +359,10 @@
       }
     } // # Cartão
   } // # Campanhas
+
+  .rodape{
+    width:960px;
+    float:left;
+    background:rgb(240,240,240);
+  }
 } // # Website
