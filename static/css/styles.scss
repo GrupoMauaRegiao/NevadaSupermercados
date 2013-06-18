@@ -171,6 +171,10 @@
       float:left;
       margin:0 20px 0 0;
       background:rgb(204,204,204);
+
+      .issuuembed{
+        width:600px; height:300px;
+      }
     }
 
     .videos{
@@ -194,7 +198,80 @@
       .player{
         height:220px;
         background:rgb(240,240,240);
+
+        iframe{
+          width:260px; height:220px;
+          border:0;
+        }
       }
     } // # Vídeos
   } // # Multimídia
+
+  .sombra-topo{
+    width:920px; height:65px;
+    margin:-40px 20px 0 20px;
+    float:left;
+    background:transparent
+               url("../imagens/sombra-topo.png")
+               center bottom no-repeat;
+  }
+
+  .campanhas{
+    width:880px; height:200px;
+    float:left;
+    margin:0 0 0 20px;
+    padding:20px 20px 0 20px;
+
+    .campanha1,
+    .campanha2{
+      float:left;
+      width:300px;
+      height:176px;
+      text-align:center;
+      overflow:hidden;
+
+      .hortifruti,
+      .carne{
+        opacity:0;
+        -webkit-transform:translateY(180px);
+        transform:translateY(180px);
+        -webkit-transition:all 0.4s linear;
+        transition:all 0.4s linear;
+
+        p{
+          font:25px ProximaLight,Arial,sans-serif;
+          color:rgb(255,255,255);
+        }
+      }
+    }
+
+    .campanha1{
+      margin: 0 10px 0 0;
+      background:transparent
+                 url('../imagens/terca-verde.jpg')
+                 left top no-repeat;
+    }
+
+    .campanha1:hover{
+      .hortifruti{
+        opacity:1;
+        -webkit-transform:translateY(115px);
+        transform:translateY(115px);
+      }
+    }
+
+    .campanha2{
+      background:transparent
+                 url('../imagens/quinta-file.jpg')
+                 left top no-repeat;
+    }
+
+    .campanha2:hover{
+      .carne{
+        opacity:1;
+        -webkit-transform:translateY(115px);
+        transform:translateY(115px);
+      }
+    }
+  } // # Campanhas
 } // # Website
