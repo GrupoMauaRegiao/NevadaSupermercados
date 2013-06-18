@@ -180,6 +180,7 @@
 
       .cabecalho-secao{
         height:60px;
+        margin:0 0 20px 0;
         background:rgb(240,240,240);
 
         h2{
@@ -188,6 +189,11 @@
           color:rgb(50,71,122);
           padding:20px;
         }
+      }
+
+      .player{
+        height:220px;
+        background:rgb(240,240,240);
       }
     } // # Vídeos
   } // # Multimídia
