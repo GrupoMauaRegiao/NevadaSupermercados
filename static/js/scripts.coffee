@@ -2,7 +2,6 @@ Nevada = Nevada || {}
 Nevada.apps =
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
-
     carregar = (url) ->
       script = document.createElement 'script'
       script.async = true
