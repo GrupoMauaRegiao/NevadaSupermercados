@@ -14,4 +14,11 @@ Nevada.apps =
     carregar 'http://e.issuu.com/embed.js'
     return
 
+  verificarBrowser: ->
+    if navigator.userAgent.match('Chrome') is null
+      body = document.querySelector 'body'
+      body.setAttribute 'class', 'no-chrome'
+    return
+
 Nevada.apps.carregarScripts()
+Nevada.apps.verificarBrowser()
