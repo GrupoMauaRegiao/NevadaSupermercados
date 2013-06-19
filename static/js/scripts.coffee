@@ -19,5 +19,15 @@ Nevada.apps =
       body.setAttribute 'class', 'no-chrome'
     return
 
+  removerBackgroundMenu: ->
+    menuChildren = document.querySelectorAll('.menu')[0]
+    lis = menuChildren.querySelectorAll 'li'
+    
+    for i in [0..lis.length] by 1
+      if lis[i].innerHTML.match('<ul>') is null
+        lis[i].setAttribute('class', 'sem-background')
+    return
+
 Nevada.apps.carregarScripts()
 Nevada.apps.verificarBrowser()
+Nevada.apps.removerBackgroundMenu()

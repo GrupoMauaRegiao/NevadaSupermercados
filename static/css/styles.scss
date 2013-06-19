@@ -70,6 +70,8 @@
   span{letter-spacing:-3px; }
 }
 
+.sem-background{ background:none !important; }
+
 .layout960px,
 .layoutAll{
   font-family:ProximaRegular,Arial,sans-serif;
@@ -123,12 +125,16 @@
           }
 
           ul{
-            display:none;
+            opacity:0;
+            z-index:-1;
             position:absolute;
             background:rgb(240,240,240);
             padding:20px 15px 5px 15px;
             border-radius:0 0 5px 5px;
+            box-shadow:inset 0px -2px 2px rgb(200,200,200);
             margin:0 0 0 -15px;
+            -webkit-transition:all 0.3s linear;
+            transition:all 0.3s linear;
 
             li{
               margin:0 0 10px 0;
@@ -147,6 +153,11 @@
 
         li:hover{
           background:rgb(240,240,240);
+
+          ul{
+            opacity:1;
+            z-index:9999;
+          }
 
           a{ color:rgb(80,80,80); }
         }
@@ -293,7 +304,7 @@
     }
 
     .campanha1{
-      margin: 0 10px 0 0;
+      margin:0 10px 0 0;
       background:transparent
                  url('../imagens/terca-verde.jpg')
                  left top no-repeat;
