@@ -108,6 +108,8 @@
       margin:35px 0 0 0;
 
       ul{
+        .sem-background:hover{ a{ color:rgb(0,0,0); } }
+
         li{
           padding:20px 15px 0 15px;
           border-radius:5px 5px 0 0;
@@ -124,44 +126,55 @@
             transition:all 0.3s linear;
           }
 
-          ul{
+          .submenu{
             opacity:0;
             z-index:-1;
             position:absolute;
-            background:rgb(240,240,240);
+            background:rgb(235,50,50);
             padding:20px 15px 5px 15px;
             border-radius:0 0 5px 5px;
-            box-shadow:inset 0px -2px 2px rgb(200,200,200);
             margin:0 0 0 -15px;
             -webkit-transition:all 0.3s linear;
             transition:all 0.3s linear;
+            box-shadow:
+                       inset 0px -4px 10px rgb(200,30,20),
+                       0px 1px 0 rgba(0,0,0,0.6);
 
             li{
-              margin:0 0 10px 0;
-              padding:0;
+              margin:0 0 0 -15px;
+              border-radius:0;
+              padding:5px;
               display:block;
               text-align:left;
+              -webkit-transition:none;
+              transition:none;
+              border-left:2px solid rgb(255,239,20);
 
               a{
-                text-shadow:0px 1px 0 rgb(255,255,255);
-                font-size:14px;
-                color:rgb(180,180,180);
+                font-size:12px;
+                color:rgb(255,255,255);
               }
             }
-          }
+          } // # Submenu
         }
 
         li:hover{
-          background:rgb(240,240,240);
+          background:rgb(235,50,50);
 
-          ul{
+          a{ color:rgb(255,255,255); }
+
+          .submenu{
             opacity:1;
             z-index:9999;
-          }
 
-          a{ color:rgb(80,80,80); }
+            li:hover{
+              border-color:rgb(70,194,240);
+
+              a{ color:rgb(70,194,240); }
+            }
+          }
         }
-      }
+      } // # ul
     } // # Menu
   } // # Cabeçalho
 

@@ -22,12 +22,25 @@ Nevada.apps =
   removerBackgroundMenu: ->
     menuChildren = document.querySelectorAll('.menu')[0]
     lis = menuChildren.querySelectorAll 'li'
-    
-    for i in [0..lis.length] by 1
-      if lis[i].innerHTML.match('<ul>') is null
-        lis[i].setAttribute('class', 'sem-background')
+
+    for i in [0..lis.length - 1] by 1
+      if lis[i].innerHTML.match('<ul class="submenu">') is null
+        lis[i].setAttribute 'class', 'sem-background'
     return
 
-Nevada.apps.carregarScripts()
-Nevada.apps.verificarBrowser()
-Nevada.apps.removerBackgroundMenu()
+  ajustaWidthSubmenu: ->
+    submenus = document.querySelectorAll '.submenu'
+    offsetWidths = []
+
+    for item, i in submenus by 1
+      offsetWidths[i] = submenus[i].parentNode.offsetWidth
+      submenus[i].style.width = offsetWidths[i] - 30 + 'px'
+    return
+
+window.onload = ->
+  Apps = Nevada.apps;
+  Apps.carregarScripts()
+  Apps.verificarBrowser()
+  Apps.removerBackgroundMenu()
+  Apps.ajustaWidthSubmenu()
+  return
