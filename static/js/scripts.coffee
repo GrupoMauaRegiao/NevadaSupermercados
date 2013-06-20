@@ -28,7 +28,7 @@ Nevada.apps =
         lis[i].setAttribute 'class', 'sem-background'
     return
 
-  ajustaWidthSubmenu: ->
+  ajustarWidthSubmenu: ->
     submenus = document.querySelectorAll '.submenu'
     offsetWidths = []
 
@@ -42,5 +42,5 @@ window.onload = ->
   Apps.carregarScripts()
   Apps.verificarBrowser()
   Apps.removerBackgroundMenu()
-  Apps.ajustaWidthSubmenu()
+  Apps.ajustarWidthSubmenu()
   return
