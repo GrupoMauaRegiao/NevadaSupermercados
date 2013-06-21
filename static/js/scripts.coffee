@@ -37,10 +37,53 @@ Nevada.apps =
       submenus[i].style.width = offsetWidths[i] - 30 + 'px'
     return
 
+  ajustarWidths: ->
+    slides = document.querySelector '.slides'
+    rodape = document.querySelector '.rodape'
+    widthPagina = window.innerWidth
+
+    if widthPagina > 960
+      slides.style.width = widthPagina + 'px'
+      rodape.style.width = widthPagina + 'px'
+    return
+
+  slider: ->
+    slides = document.querySelectorAll '.slide'
+    n = 0
+
+    destacarSlide = (n) ->
+      if n is 0
+        slides[1].setAttribute 'class', 'slide esquerda'
+        slides[n].setAttribute 'class', 'slide centro'
+        slides[2].setAttribute 'class', 'slide direita'
+      else if n is 1
+        slides[0].setAttribute 'class', 'slide esquerda'
+        slides[n].setAttribute 'class', 'slide centro'
+        slides[2].setAttribute 'class', 'slide direita'
+      else if n is 2
+        slides[0].setAttribute 'class', 'slide esquerda'
+        slides[n].setAttribute 'class', 'slide centro'
+        slides[1].setAttribute 'class', 'slide direita'
+      return
+
+    padronizarSlides = ->
+      if n < slides.length - 1 then n += 1 else n = 0
+      destacarSlide n
+      return
+
+    interval = setInterval (->
+      padronizarSlides()
+      return
+    ), 4000
+
+    return
+
 window.onload = ->
   Apps = Nevada.apps;
   Apps.carregarScripts()
   Apps.verificarBrowser()
   Apps.removerBackgroundMenu()
   Apps.ajustarWidthSubmenu()
+  Apps.ajustarWidths();
+  Apps.slider();
   return

@@ -97,6 +97,7 @@
         img{
           margin:40px 0 0 40px;
           position:absolute;
+          z-index:9999;
         }
       }
     } // # Logotipo
@@ -190,7 +191,7 @@
   .ofertas{
     width:880px;
     float:left;
-    box-shadow:0 -10px 20px rgb(230,230,230);
+    box-shadow:0 -20px 20px rgba(0,0,0,0.15);
     margin:0 0 0 20px;
     padding:30px 20px 0 20px;
 
@@ -399,17 +400,57 @@
 } // # Website
 
 .slides{
-  width:1000%; height:400px;
+  height:400px;
   background:rgb(227,227,227);
   float:left;
 
   .slide{
+    -webkit-transition:all 0.3s linear;
+    transition:all 0.3s linear;
+    position:absolute;
     float:left;
+    margin-left:-480px;
+  }
+
+  .slide:nth-child(2){
+    opacity:0.1;
+    left:0;
+    z-index:9997;
+  }
+
+  .slide:nth-child(1){
+    opacity:1;
+    left:50%;
+    z-index:9997;
+  }
+
+  .slide:nth-child(3){
+    opacity:0.1;
+    left:100%;
+    z-index:9997;
+  }
+
+  .esquerda{
+    left:0 !important;
+    z-index:9997 !important;
+    opacity:0.2 !important;
+  }
+
+  .centro{
+    left:50% !important;
+    z-index:9998 !important;
+    opacity:1 !important;
+  }
+
+  .direita{
+    left:100% !important;
+    z-index:9997 !important;
+    opacity:0.2 !important;
   }
 }
 
 .rodape{
-  width:100%; height:170px;
+  height:170px;
   float:left;
   background:rgb(240,240,240);
 
