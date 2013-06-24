@@ -71,21 +71,45 @@ Nevada.apps =
         for item, i in arranjos[3..5] by 1
           slides[item].setAttribute 'class', 'slide ' + posicoes[i]
       else if n is 2
-        for item, i in arranjos[6..8] by 1
+        for item, i in arranjos[6..8] by 1  
           slides[item].setAttribute 'class', 'slide ' + posicoes[i]
-
       return
 
-    padronizarSlides = ->
+    # Controla o tempo para a troca de slides
+    timer = ->
+      itrvl = setInterval ->
+        proximo()
+        return
+      , 4000 # Tempo para troca
+      return
+
+    # Botões Anterior e Próximo
+    anterior = ->
+      if n > 0 then n -= 1 else n = 2
+      destacarSlide n
+      return
+
+    proximo = ->
       if n < slides.length - 1 then n += 1 else n = 0
       destacarSlide n
       return
 
-    interval = setInterval (->
-      padronizarSlides()
-      return
-    ), 4000
+    # Listeners para os Botões
+    navegacao = ->
+      btnAnterior = document.querySelector '.anterior'
+      btnProximo = document.querySelector '.proximo'
 
+      btnAnterior.addEventListener 'click', ->
+        anterior()
+        return
+
+      btnProximo.addEventListener 'click', ->
+        proximo()
+        return
+      return
+
+    timer();
+    navegacao()
     return
 
 window.onload = ->
