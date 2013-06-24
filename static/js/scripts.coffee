@@ -52,18 +52,28 @@ Nevada.apps =
     n = 0
 
     destacarSlide = (n) ->
+      posicoes = [
+        'esquerda'
+        'centro'
+        'direita'
+      ]
+
+      arranjos = [
+        1, 0, 2
+        2, 1, 0
+        0, 2, 1
+      ]
+
       if n is 0
-        slides[1].setAttribute 'class', 'slide esquerda'
-        slides[n].setAttribute 'class', 'slide centro'
-        slides[2].setAttribute 'class', 'slide direita'
+        for item, i in arranjos[0..2] by 1
+          slides[item].setAttribute 'class', 'slide ' + posicoes[i]
       else if n is 1
-        slides[0].setAttribute 'class', 'slide esquerda'
-        slides[n].setAttribute 'class', 'slide centro'
-        slides[2].setAttribute 'class', 'slide direita'
+        for item, i in arranjos[3..5] by 1
+          slides[item].setAttribute 'class', 'slide ' + posicoes[i]
       else if n is 2
-        slides[0].setAttribute 'class', 'slide esquerda'
-        slides[n].setAttribute 'class', 'slide centro'
-        slides[1].setAttribute 'class', 'slide direita'
+        for item, i in arranjos[6..8] by 1
+          slides[item].setAttribute 'class', 'slide ' + posicoes[i]
+
       return
 
     padronizarSlides = ->
@@ -79,11 +89,11 @@ Nevada.apps =
     return
 
 window.onload = ->
-  Apps = Nevada.apps;
+  Apps = Nevada.apps
   Apps.carregarScripts()
   Apps.verificarBrowser()
   Apps.removerBackgroundMenu()
   Apps.ajustarWidthSubmenu()
-  Apps.ajustarWidths();
-  Apps.slider();
+  Apps.ajustarWidths()
+  Apps.slider()
   return
