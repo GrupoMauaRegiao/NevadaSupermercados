@@ -13,12 +13,6 @@ Nevada.apps =
     carregar 'http://e.issuu.com/embed.js'
     return
 
-  verificarBrowser: ->
-    if navigator.userAgent.match('Chrome') is null
-      body = document.querySelector 'body'
-      body.setAttribute 'class', 'no-chrome'
-    return
-
   removerBackgroundMenu: ->
     menuChildren = document.querySelectorAll('.menu')[0]
     lis = menuChildren.querySelectorAll 'li'
@@ -35,16 +29,6 @@ Nevada.apps =
     for item, i in submenus by 1
       offsetWidths[i] = submenus[i].parentNode.offsetWidth
       submenus[i].style.width = offsetWidths[i] - 30 + 'px'
-    return
-
-  ajustarWidths: ->
-    slides = document.querySelector '.slides'
-    rodape = document.querySelector '.rodape'
-    widthPagina = window.innerWidth
-
-    if widthPagina > 960
-      slides.style.width = widthPagina + 'px'
-      rodape.style.width = widthPagina + 'px'
     return
 
   slider: ->
@@ -115,9 +99,7 @@ Nevada.apps =
 window.onload = ->
   Apps = Nevada.apps
   Apps.carregarScripts()
-  Apps.verificarBrowser()
   Apps.removerBackgroundMenu()
   Apps.ajustarWidthSubmenu()
-  Apps.ajustarWidths()
   Apps.slider()
   return
