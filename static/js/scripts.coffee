@@ -55,16 +55,18 @@ Nevada.apps =
         for item, i in arranjos[3..5] by 1
           slides[item].setAttribute 'class', 'slide ' + posicoes[i]
       else if n is 2
-        for item, i in arranjos[6..8] by 1  
+        for item, i in arranjos[6..8] by 1
           slides[item].setAttribute 'class', 'slide ' + posicoes[i]
       return
 
-    # Controla o tempo para a troca de slides
+    # Controla o intervalo entre a troca de slides
     timer = ->
-      itrvl = setInterval ->
+       # Tempo em segundos
+      tempo = 5
+      interval = setInterval ->
         proximo()
         return
-      , 4000 # Tempo para troca
+      , tempo * 1000
       return
 
     # Botões Anterior e Próximo
@@ -92,7 +94,7 @@ Nevada.apps =
         return
       return
 
-    timer();
+    timer()
     navegacao()
     return
 

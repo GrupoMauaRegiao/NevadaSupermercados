@@ -66,6 +66,7 @@
 
 body{
   background:url('../imagens/bg-rodape.png') repeat-x bottom;
+  overflow-x:hidden;
 }
 
 .sem-background{ background:none !important; }
@@ -438,7 +439,7 @@ body{
     border-right:1px solid rgb(255,255,255);
   }
 
-  .direita{ left:99% !important; }
+  .direita{ left:100% !important; }
 
   .controles{
     width:960px; height:400px;
