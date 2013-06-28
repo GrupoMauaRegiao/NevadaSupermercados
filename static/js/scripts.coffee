@@ -1,5 +1,6 @@
 Nevada = Nevada || {}
 Nevada.apps =
+
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
     carregar = (url) ->
@@ -32,8 +33,10 @@ Nevada.apps =
     return
 
   slider: ->
+    interval = window.interval
     slides = document.querySelectorAll '.slide'
     n = 0
+
 
     destacarSlide = (n) ->
       posicoes = [
@@ -61,15 +64,16 @@ Nevada.apps =
 
     # Controla o intervalo entre a troca de slides
     timer = ->
-       # Tempo em segundos
-      tempo = 5
+      # tempo = n,
+      # sendo `n` o tempo desejado em segundos
+      tempo = 4
       interval = setInterval ->
         proximo()
         return
       , tempo * 1000
       return
 
-    # Botões Anterior e Próximo
+    # Botões "<" (anterior) e ">" (próximo)
     anterior = ->
       if n > 0 then n -= 1 else n = 2
       destacarSlide n
@@ -80,25 +84,37 @@ Nevada.apps =
       destacarSlide n
       return
 
-    # Listeners para os Botões
     navegacao = ->
       btnAnterior = document.querySelector '.anterior'
       btnProximo = document.querySelector '.proximo'
-
-      btnAnterior.addEventListener 'click', ->
-        anterior()
-        return
-
-      btnProximo.addEventListener 'click', ->
-        proximo()
-        return
+      btnAnterior.addEventListener 'click', anterior
+      btnProximo.addEventListener 'click', proximo
       return
 
-    timer()
-    navegacao()
+    # Interrompe/continua a apresentação se o cursor
+    # estiver/não estiver sobre ela
+    pause = ->
+      clearInterval interval
+      return
+
+    play = ->
+      timer()
+      return
+
+    pausePlay = ->
+      controles = document.querySelector '.controles'
+      controles.addEventListener 'mouseover', pause
+      controles.addEventListener 'mouseout', play
+      return
+
+    inicializar = do ->
+      timer()
+      pausePlay()
+      navegacao()
+      return
     return
 
-window.onload = ->
+do ->
   Apps = Nevada.apps
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
