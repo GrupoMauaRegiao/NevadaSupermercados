@@ -1,5 +1,7 @@
 Nevada = Nevada || {}
 Nevada.apps =
+  converterSegParaMili: (tempoSegundos) ->
+    tempoSegundos * 1000
 
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
@@ -32,10 +34,22 @@ Nevada.apps =
       submenus[i].style.width = offsetWidths[i] - 30 + 'px'
     return
 
+  # Slideshow
   slider: ->
     interval = window.interval
     slides = document.querySelectorAll '.slide'
     n = 0
+
+    listeners = ->
+      controles = document.querySelector '.controles'
+      btnAnterior = document.querySelector '.anterior'
+      btnProximo = document.querySelector '.proximo'
+
+      btnAnterior.addEventListener 'click', anterior
+      btnProximo.addEventListener 'click', proximo
+      controles.addEventListener 'mouseover', pause
+      controles.addEventListener 'mouseout', play
+      return
 
     destacarSlide = (n) ->
       posicoes = [
@@ -66,10 +80,11 @@ Nevada.apps =
       # tempo = n,
       # sendo `n` o tempo desejado em segundos
       tempo = 4
+      paraSegundos = Nevada.apps.converterSegParaMili
       interval = setInterval ->
         proximo()
         return
-      , tempo * 1000
+      , paraSegundos tempo
       return
 
     # Botões "<" (anterior) e ">" (próximo)
@@ -83,13 +98,6 @@ Nevada.apps =
       destacarSlide n
       return
 
-    navegacao = ->
-      btnAnterior = document.querySelector '.anterior'
-      btnProximo = document.querySelector '.proximo'
-      btnAnterior.addEventListener 'click', anterior
-      btnProximo.addEventListener 'click', proximo
-      return
-
     # Interrompe/continua a apresentação se o cursor
     # estiver/não estiver sobre ela
     pause = ->
@@ -100,16 +108,10 @@ Nevada.apps =
       timer()
       return
 
-    pausePlay = ->
-      controles = document.querySelector '.controles'
-      controles.addEventListener 'mouseover', pause
-      controles.addEventListener 'mouseout', play
-      return
-
+    # Inicializa Slideshow
     inicializar = do ->
+      listeners()
       timer()
-      pausePlay()
-      navegacao()
       return
     return
 
