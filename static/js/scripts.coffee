@@ -37,7 +37,6 @@ Nevada.apps =
     slides = document.querySelectorAll '.slide'
     n = 0
 
-
     destacarSlide = (n) ->
       posicoes = [
         'esquerda'
