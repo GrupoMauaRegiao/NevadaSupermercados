@@ -1,0 +1,512 @@
+/*! reset.*/
+@import 'reset.scss';
+
+/*! Estilos gerais */
+
+@font-face{
+  font-family:ProximaRegular;
+  font-style:normal;
+  font-weight:normal;
+  src:url('../fonts/ProximaNova-Regular.otf');
+}
+
+@font-face{
+  font-family:ProximaLight;
+  font-style:normal;
+  font-weight:normal;
+  src:url('../fonts/ProximaNova-Light.otf');
+}
+
+/* Animação cartão */
+@keyframes girarCartao{
+  0% { background:transparent url('../imagens/animacao-cartao/c01.png') no-repeat left top; }
+  10% { background:transparent url('../imagens/animacao-cartao/c02.png') no-repeat left top; }
+  20% { background:transparent url('../imagens/animacao-cartao/c03.png') no-repeat left top; }
+  30% { background:transparent url('../imagens/animacao-cartao/c04.png') no-repeat left top; }
+  40% { background:transparent url('../imagens/animacao-cartao/c05.png') no-repeat left top; }
+  50% { background:transparent url('../imagens/animacao-cartao/c06.png') no-repeat left top; }
+  60% { background:transparent url('../imagens/animacao-cartao/c07.png') no-repeat left top; }
+  70% { background:transparent url('../imagens/animacao-cartao/c08.png') no-repeat left top; }
+  80% { background:transparent url('../imagens/animacao-cartao/c09.png') no-repeat left top; }
+  90% { background:transparent url('../imagens/animacao-cartao/c10.png') no-repeat left top; }
+}
+
+@-webkit-keyframes girarCartao{
+  0% { background:transparent url('../imagens/animacao-cartao/c01.png') no-repeat left top;  }
+  10% { background:transparent url('../imagens/animacao-cartao/c02.png') no-repeat left top;  }
+  20% { background:transparent url('../imagens/animacao-cartao/c03.png') no-repeat left top;  }
+  30% { background:transparent url('../imagens/animacao-cartao/c04.png') no-repeat left top;  }
+  40% { background:transparent url('../imagens/animacao-cartao/c05.png') no-repeat left top;  }
+  50% { background:transparent url('../imagens/animacao-cartao/c06.png') no-repeat left top;  }
+  60% { background:transparent url('../imagens/animacao-cartao/c07.png') no-repeat left top;  }
+  70% { background:transparent url('../imagens/animacao-cartao/c08.png') no-repeat left top;  }
+  80% { background:transparent url('../imagens/animacao-cartao/c09.png') no-repeat left top;  }
+  90% { background:transparent url('../imagens/animacao-cartao/c10.png') no-repeat left top;  }
+}
+
+body{
+  background:url('../imagens/bg-rodape.png') repeat-x bottom;
+  overflow-x:hidden;
+}
+
+@media screen and (max-width:960px) {
+  body{ overflow:visible; }
+}
+
+.sem-background{ background:none !important; }
+
+.layout960px{
+  width:960px;
+  font-family:ProximaRegular,Arial,sans-serif;
+  text-transform:uppercase;
+  margin:0 auto;
+  position:relative;
+
+  .cabecalho{
+    width:960px; height:150px;
+    float:left;
+
+    .logotipo{
+      width:350px; height:200px;
+      float:left;
+
+      a{
+        border:0;
+        outline:0;
+
+        img{
+          margin:40px 0 0 40px;
+          position:absolute;
+          z-index:9999;
+        }
+      }
+    } // # Logotipo
+
+    .menu{
+      width:610px; height:84px;
+      float:left;
+      text-align:center;
+      margin:35px 0 0 0;
+
+      ul{
+        .sem-background:hover{ a{ color:rgb(0,0,0); } }
+
+        li{
+          padding:20px 15px 0 15px;
+          border-radius:5px 5px 0 0;
+          display:inline-block;
+          transition:all 0.3s linear;
+          -webkit-transition:all 0.3s linear;
+
+          a{
+            font-size:16px;
+            text-decoration:none;
+            color:rgb(128,128,128);
+            transition:all 0.3s linear;
+            -webkit-transition:all 0.3s linear;
+
+            span{
+              font-size:22px;
+              color:rgb(235,52,55);
+            }
+          }
+
+          .submenu{
+            opacity:0;
+            z-index:-1;
+            position:absolute;
+            background:rgb(235,50,50);
+            padding:0 15px 5px 15px;
+            border-radius:0 0 5px 5px;
+            margin:0 0 0 -15px;
+            box-shadow:
+                       inset 0px -4px 10px rgb(200,30,20),
+                       0px 1px 0 rgba(0,0,0,0.6);
+            border-top:5px solid rgb(200,30,20);
+
+            li{
+              margin:0 0 0 -20px;
+              border-radius:0;
+              padding:5px;
+              display:block;
+              text-align:left;
+              transition:none;
+              -webkit-transition:none;
+              border-left:5px solid rgb(200,30,20);
+
+              a{
+                font-size:12px;
+                color:rgb(255,255,255);
+              }
+            }
+          } // # Submenu
+        } // # li
+
+        li:hover{
+          background:rgb(235,50,50);
+
+          a{ color:rgb(255,255,255); }
+
+          .submenu{
+            opacity:1;
+            z-index:9999;
+
+            li:hover{
+              border-color:rgb(255,239,20);
+
+              a{
+                color:rgb(255,239,20);
+                text-shadow:1px 1px 0 rgb(0,0,0);
+              }
+            }
+          }
+        }
+      } // # ul
+    } // # Menu
+  } // # Cabeçalho
+
+  .ofertas{
+    width:880px;
+    float:left;
+    box-shadow:0 -20px 20px rgba(0,0,0,0.15);
+    margin:400px 0 0 20px;
+    padding:30px 20px 0 20px;
+
+    .cabecalho-secao{
+      font-size:25px;
+      color:rgb(27,27,27);
+      margin:0 0 30px 0;
+    }
+
+    .oferta{
+      width:220px; height:150px;
+      float:left;
+      border-bottom:2px solid rgb(245,245,245);
+
+      .imagem-produto{
+        width:220px; height:150px;
+        overflow:hidden;
+        position:absolute;
+        z-index:-1;
+
+        img{ padding:0 20px; }
+      }
+
+      .informacao{
+        width:110px; height:120px;
+        padding:15px;
+        margin:0 0 0 80px;
+        background:rgba(245,245,245,0.9);
+        border-radius:0 5px 0 0;
+        
+        .nome-produto{
+          height:65px;
+          overflow:hidden;
+
+          p{ font:20px ProximaLight,Arial,sans-serif; }
+        }
+
+        .preco{
+          margin:20px 0 0 0;
+
+          p{
+            font:bold 30px ProximaLight,Arial,sans-serif;
+            color:rgb(207,0,0);
+
+            span{ font-size:20px; }
+          }
+        }
+      } // # Informação
+    } // # Oferta
+  } // # Ofertas
+
+  .multimidia{
+    width:880px; height:300px;
+    float:left;
+    margin:0 0 0 20px;
+    padding:20px;
+
+    .jornal{
+      width:600px; height:300px;
+      float:left;
+      margin:0 20px 0 0;
+      background:rgb(204,204,204);
+
+      .issuuembed{ 
+        width:600px; height:300px;
+        background:linear-gradient(0deg,rgb(255,220,220),rgb(255,255,255));
+      }
+
+      .rodape-jornal{
+        width:600px; height:40px;
+        background:url('../imagens/rodape-jornal.png') no-repeat;
+        margin-top:-27px;
+        position:relative;
+        z-index:9999;
+
+        p{
+          color:rgb(255,255,255);
+          font-size:18px;
+          padding:6px 0px 0 10px;
+        }
+      } // # Rodapé do Jornal
+    } // # Jornal
+
+    .videos{
+      width:260px; height:300px;
+      float:left;
+
+      .cabecalho-secao{
+        height:60px;
+        margin:0 0 20px 0;
+        background:rgb(240,240,240);
+
+        h2{
+          font-size:26px;
+          color:rgb(50,71,122);
+          padding:20px;
+        }
+      }
+
+      .player{
+        height:220px;
+        background:rgb(240,240,240);
+
+        iframe{
+          width:260px; height:220px;
+          border:0;
+        }
+      }
+    } // # Vídeos
+  } // # Multimídia
+
+  .sombra-topo{
+    width:920px; height:65px;
+    margin:-40px 20px 0 20px;
+    float:left;
+    background:transparent
+               url("../imagens/sombra-topo.png")
+               center bottom no-repeat;
+  }
+
+  .campanhas{
+    width:880px; height:250px;
+    float:left;
+    margin:0 0 0 20px;
+    padding:20px 20px 0 20px;
+
+    .campanha1,
+    .campanha2{
+      width:300px; height:176px;
+      float:left;
+      text-align:center;
+      overflow:hidden;
+
+      .hortifruti,
+      .carne{
+        opacity:0;
+        transform:translateY(180px);
+        -webkit-transform:translateY(180px);
+        transition:all 0.4s linear;
+        -webkit-transition:all 0.4s linear;
+
+        p{
+          font:25px ProximaLight,Arial,sans-serif;
+          color:rgb(255,255,255);
+        }
+      }
+    }
+
+    .campanha1{
+      margin:0 10px 0 0;
+      background:transparent
+                 url('../imagens/terca-verde.jpg')
+                 left top no-repeat;
+    }
+
+    .campanha1:hover{
+      .hortifruti{
+        opacity:1;
+        transform:translateY(115px);
+        -webkit-transform:translateY(115px);
+      }
+    }
+
+    .campanha2{
+      background:transparent
+                 url('../imagens/quinta-file.jpg')
+                 left top no-repeat;
+    }
+
+    .campanha2:hover{
+      .carne{
+        opacity:1;
+        transform:translateY(115px);
+        -webkit-transform:translateY(115px);
+      }
+    }
+
+    .sombra-lateral{
+      width:45px; height:176px;
+      float:left;
+      background:transparent url('../imagens/sombra-lateral.png') no-repeat right top;
+    }
+
+    .cartao{
+      width:215px;
+      padding:0 0 0 10px;
+      float:left;
+
+      .animacao-cartao{
+        height:145px;
+        background:transparent url('../imagens/animacao-cartao/c01.png') no-repeat left top;
+      }
+
+      .animacao-cartao:hover{
+        animation:girarCartao 0.3s linear 0s;
+        -webkit-animation:girarCartao 0.3s linear 0s;
+      }
+
+      .informacao{
+        p:nth-child(1){
+          font-size:22px;
+          color:rgb(51,71,125);
+
+          span{ font-weight:bold; }
+        }
+
+        p:nth-child(2){
+          margin:10px 0 0 0;
+          font-size:20px;
+          color:rgb(132,132,132);
+        }
+      }
+    } // # Cartão
+  } // # Campanhas
+
+  .slides{
+    margin:150px 0 0 0;
+    background:rgb(227,227,227);
+    float:left;
+
+    .slide{
+      width:960px; height:400px;
+      transition:all 0.3s linear;
+      -webkit-transition:all 0.3s linear;
+      position:absolute;
+      float:left;
+      margin-left:-480px;
+      z-index:9997;
+
+      img{ width:960px; height:400px; }
+    }
+
+    .slide:nth-child(2),
+    .slide:nth-child(3){ opacity:0.1; }
+
+    .slide:nth-child(2){ left:0; }
+    .slide:nth-child(1){
+      opacity:1;
+      left:50%;
+    }
+    .slide:nth-child(3){
+      left:100%;
+    }
+
+    .esquerda,
+    .direita{
+      z-index:9997 !important;
+      opacity:0.2 !important;
+    }
+    .esquerda{ left:0 !important; }
+    .centro{
+      left:50% !important;
+      z-index:9998 !important;
+      opacity:1 !important;
+      box-shadow:15px 0px 25px rgba(0,0,0,0.2),
+                 -15px 0px 25px rgba(0,0,0,0.2);
+      border-left:1px solid rgb(255,255,255);
+      border-right:1px solid rgb(255,255,255);
+    }
+
+    .direita{ left:100% !important; }
+
+    .controles{
+      width:960px; height:400px;
+      z-index:9998;
+      left:50%;
+      margin-left:-479px;
+      position:absolute;
+
+
+      .anterior,
+      .proximo{
+        width:40px; height:75px;
+        margin-top:160px;
+        float:left;
+        position:absolute;
+        background:url('data:image/png;base64,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') no-repeat 0 50%;
+        cursor:pointer;
+      }
+
+      .anterior{ left:30px; }
+      .proximo{
+        right:30px;
+        background-position:-46px 50%;
+      }
+    } // # Controles
+  } // # Slides
+
+  .rodape{
+    height:185px;
+    float:left;
+
+    .menu{
+      width:960px;
+      padding:30px 0;
+      text-align:center;
+      margin:0 auto;
+
+      ul{
+        li{
+          display:inline-block;
+          margin:0 55px 0 40px;
+
+          a{
+            font-size:17px;
+            text-decoration:none;
+            color:rgb(77,77,77);
+            transition:all 0.3s linear;
+            -webkit-transition:all 0.3s linear;
+          }
+
+          a:hover{ color:rgb(0,0,0); }
+
+          ul{
+            position:absolute;
+            padding:10px 0 0 5px;
+
+            li{
+              margin:0;
+              padding:0;
+              display:block;
+              text-align:left;
+
+              a{
+                font-size:16px;
+                color:rgb(128,128,128);
+              }
+            }
+          }
+        } // # li
+      } // # ul
+    } // # Menu
+
+    .logotipo-pinguim{
+      width:59px; height:92px;
+      top:20px; left:220px;
+      position:relative;
+      z-index:9999;
+    }
+  } // # Rodapé
+} // # Layout 960px
