@@ -1,14 +1,16 @@
 <?php get_header(); ?>
       <div class="slides">
-        <div class="slide esquerda">
-          <img src="<?php echo get_template_directory_uri(); ?>/imagens/banners/01.jpg" alt="" />
-        </div>
-        <div class="slide centro">
-          <img src="<?php echo get_template_directory_uri(); ?>/imagens/banners/02.jpg" alt="" />
-        </div>
-        <div class="slide direita">
-          <img src="<?php echo get_template_directory_uri(); ?>/imagens/banners/03.jpg" alt="" />
-        </div>
+        <?php $CSSclasses = array("esquerda", "centro", "direita"); ?>
+        <?php query_posts('order=DESC&posts_per_page=3&category_name=Banner'); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <?php if (get_post_meta($post->ID, 'Imagem', true)) : ?>
+              <?php $i = $wp_query->current_post; ?>
+              <div class="slide <?php echo $CSSclasses[$i]; ?>">
+                <img src="<?php echo get_post_meta($post->ID, 'Imagem', true); ?>" alt="" />
+              </div>
+            <?php endif; ?>
+          <?php endwhile; else: ?>
+        <?php endif; ?>
         <div class="controles">
           <div class="anterior"></div>
           <div class="proximo"></div>
