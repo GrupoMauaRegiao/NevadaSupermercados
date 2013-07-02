@@ -3,10 +3,10 @@
         <?php $CSSclasses = array("esquerda", "centro", "direita"); ?>
         <?php query_posts('order=DESC&posts_per_page=3&category_name=Banner'); ?>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <?php if (get_post_meta($post->ID, 'Imagem', true)) : ?>
+            <?php if (get_post_meta($post->ID, 'Imagem BANNER', true)) : ?>
               <?php $i = $wp_query->current_post; ?>
               <div class="slide <?php echo $CSSclasses[$i]; ?>">
-                <img src="<?php echo get_post_meta($post->ID, 'Imagem', true); ?>" alt="" />
+                <img src="<?php echo get_post_meta($post->ID, 'Imagem BANNER', true); ?>" alt="" />
               </div>
             <?php endif; ?>
           <?php endwhile; else: ?>

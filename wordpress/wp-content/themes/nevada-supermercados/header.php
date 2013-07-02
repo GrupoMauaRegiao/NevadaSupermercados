@@ -17,7 +17,10 @@
       <div class="cabecalho">
         <div class="logotipo">
           <a href="<?php bloginfo('url'); ?>">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagens/logotipo.png" alt="Rede Nevada Supermercados" title="Rede Nevada Supermercados" />
+            <img
+              src="<?php echo get_template_directory_uri(); ?>/imagens/logotipo.png"
+              alt="<?php bloginfo('name'); ?>"
+              title="<?php bloginfo('name'); ?>" />
           </a>
         </div>
         <div class="menu">
