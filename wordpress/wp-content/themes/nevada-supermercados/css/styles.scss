@@ -189,7 +189,10 @@ body{
         position:absolute;
         z-index:-1;
 
-        img{ padding:0 20px; }
+        img{
+          width:220px;
+          padding:0 20px;
+        }
       }
 
       .informacao{
@@ -200,17 +203,33 @@ body{
         border-radius:0 5px 0 0;
         
         .nome-produto{
-          height:65px;
+          padding:5px;
+          height:75px;
           overflow:hidden;
 
-          p{ font:20px ProximaLight,Arial,sans-serif; }
+          p{
+            font:18px ProximaLight,Arial,sans-serif;
+            word-wrap:break-word;
+
+            span{
+              font-size:14px;
+              color:rgb(200,2,2);
+            }
+          }
+        }
+
+        .medida{
+          margin:0 0 5px 0;
+
+          p{
+            font:10px ProximaLight,Arial,sans-serif;
+            color:rgb(200,2,2);
+          }
         }
 
         .preco{
-          margin:20px 0 0 0;
-
           p{
-            font:bold 30px ProximaLight,Arial,sans-serif;
+            font:bold 21px ProximaLight,Arial,sans-serif;
             color:rgb(207,0,0);
 
             span{ font-size:20px; }

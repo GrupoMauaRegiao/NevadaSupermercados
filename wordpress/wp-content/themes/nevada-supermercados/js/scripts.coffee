@@ -115,10 +115,18 @@ Nevada.apps =
       return
     return
 
+  controlarTamanhoString: (seletor, maxCaract) ->
+    texto = document.querySelector(seletor)
+
+    if texto.innerText.length > maxCaract
+      texto.innerText = texto.innerText.slice(0, maxCaract) + '...'
+    return
+
 do ->
   Apps = Nevada.apps
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
   Apps.ajustarWidthSubmenu()
   Apps.slider()
+  Apps.controlarTamanhoString '.nome-produto p', 25
   return

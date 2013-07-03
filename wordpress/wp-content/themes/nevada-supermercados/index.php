@@ -1,14 +1,25 @@
+<?php 
+  $campoBanner = array(
+    "Imagem BANNER"
+  );
+
+  $camposOferta = array(
+    "Imagem OFERTA",
+    "MEDIDA (kg, g, dz, un, ..., etc.)",
+    "Preço OFERTA"
+  );
+
+  $cssClassesSlides = array("esquerda", "centro", "direita");
+?>
+
 <?php get_header(); ?>
       <div class="slides">
-        <?php $CSSclasses = array("esquerda", "centro", "direita"); ?>
         <?php query_posts('order=DESC&posts_per_page=3&category_name=Banner'); ?>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <?php if (get_post_meta($post->ID, 'Imagem BANNER', true)) : ?>
-              <?php $i = $wp_query->current_post; ?>
-              <div class="slide <?php echo $CSSclasses[$i]; ?>">
-                <img src="<?php echo get_post_meta($post->ID, 'Imagem BANNER', true); ?>" alt="" />
-              </div>
-            <?php endif; ?>
+            <?php $i = $wp_query->current_post; ?>
+            <div class="slide <?php echo $cssClassesSlides[$i]; ?>">
+              <img src="<?php echo get_post_meta($post->ID, $campoBanner[0], true); ?>" alt="" />
+            </div>
           <?php endwhile; else: ?>
         <?php endif; ?>
         <div class="controles">
@@ -22,61 +33,26 @@
           <h2>Ofertas</h2>
         </div>
 
-        <div class="oferta">
-          <div class="imagem-produto">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagens/produto01.jpg" alt="" />
-          </div>
-          <div class="informacao">
-            <div class="nome-produto">
-              <p title="Asa de Frango Kg.">Asa de Frango Kg.</p>
+        <?php query_posts("order=DESC&posts_per_page=4&category_name=Oferta"); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <div class="oferta">
+              <div class="imagem-produto">
+                <img src="<?php echo get_post_meta($post->ID, $camposOferta[0], true); ?>" alt="" />
+              </div>
+              <div class="informacao">
+                <div class="nome-produto">
+                  <p title="<?php the_title(); ?>"><?php the_title(); ?></p>
+                </div>
+                <div class="medida">
+                  <p><?php echo get_post_meta($post->ID, $camposOferta[1], true); ?></p>
+                </div>
+                <div class="preco">
+                  <p><span>R$</span> <?php echo get_post_meta($post->ID, $camposOferta[2], true); ?></p>
+                </div>
+              </div>
             </div>
-            <div class="preco">
-              <p><span>R$</span> 5,78</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="oferta">
-          <div class="imagem-produto">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagens/produto02.jpg" alt="" />
-          </div>
-          <div class="informacao">
-            <div class="nome-produto">
-              <p title="Biscoito Vitarella 400 g.">Biscoito Vitarella 400 g.</p>
-            </div>
-            <div class="preco">
-              <p><span>R$</span> 2,79</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="oferta">
-          <div class="imagem-produto">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagens/produto03.jpg" alt="" />
-          </div>
-          <div class="informacao">
-            <div class="nome-produto">
-              <p title="Margarina Qualy 500 g.">Margarina Qualy 500 g.</p>
-            </div>
-            <div class="preco">
-              <p><span>R$</span> 3,79</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="oferta">
-          <div class="imagem-produto">
-            <img src="<?php echo get_template_directory_uri(); ?>/imagens/produto04.jpg" alt="" />
-          </div>
-          <div class="informacao">
-            <div class="nome-produto">
-              <p title="Biscoito Vitarella 400 g.">Biscoito Vitarella 400 g.</p>
-            </div>
-            <div class="preco">
-              <p><span>R$</span> 2,79</p>
-            </div>
-          </div>
-        </div>
+          <?php endwhile; else: ?>
+        <?php endif; ?>
       </div><!-- # Ofertas -->
 
       <div class="multimidia">
