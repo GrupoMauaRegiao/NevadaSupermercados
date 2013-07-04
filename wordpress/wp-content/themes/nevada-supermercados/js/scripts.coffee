@@ -30,8 +30,8 @@ Nevada.apps =
     offsetWidths = []
 
     for item, i in submenus by 1
-      offsetWidths[i] = submenus[i].parentNode.offsetWidth
-      submenus[i].style.width = offsetWidths[i] - 30 + 'px'
+      offsetWidths[i] = submenus[i].previousSibling.previousSibling.offsetWidth
+      submenus[i].style.width = offsetWidths[i] + 'px'
     return
 
   # Slideshow
@@ -122,11 +122,14 @@ Nevada.apps =
       texto.innerText = texto.innerText.slice(0, maxCaract) + '...'
     return
 
+Apps = Nevada.apps
 do ->
-  Apps = Nevada.apps
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
-  Apps.ajustarWidthSubmenu()
   Apps.slider()
   Apps.controlarTamanhoString '.nome-produto p', 25
+  return
+
+window.onload = ->
+  Apps.ajustarWidthSubmenu()
   return
