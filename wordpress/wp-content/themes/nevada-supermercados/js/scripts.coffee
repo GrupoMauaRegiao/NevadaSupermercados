@@ -129,6 +129,13 @@ Nevada.apps =
     embed.setAttribute 'data-configid', id[0]
     return
 
+  configIdYouTube: ->
+    iframe = document.querySelector '.youtube'
+    link = iframe.getAttribute 'src'
+    id = link.match /[\w-]{11}/
+    iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.carregarScripts()
@@ -136,6 +143,7 @@ do ->
   Apps.slider()
   Apps.controlarTamanhoString '.nome-produto p', 25
   Apps.configIdIssuu()
+  Apps.configIdYouTube()
   return
 
 window.onload = ->

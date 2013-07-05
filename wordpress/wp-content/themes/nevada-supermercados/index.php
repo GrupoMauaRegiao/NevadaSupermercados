@@ -13,6 +13,10 @@
     "Link ISSUU"
   );
 
+  $campoVideo = array(
+    "Link YOUTUBE"
+  );
+
   $cssClassesSlides = array("esquerda", "centro", "direita");
 ?>
 
@@ -65,10 +69,10 @@
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <div
                 class="issuuembed"
-                data-configid="<?php echo get_post_meta($post->ID, $campoJornal[0], true); ?>"></div>
+                data-configid="<?php echo get_post_meta($post->ID, $campoJornal[0], true); ?>">
+              </div>
             <?php endwhile; else: ?>
           <?php endif; ?>
-          
           <div class="rodape-jornal">
             <p>Jornal de Ofertas</p>
           </div>
@@ -78,7 +82,14 @@
             <h2>Vídeos</h2>
           </div>
           <div class="player">
-            <iframe src="http://www.youtube.com/embed/lempeC72Tyg?rel=0"></iframe>
+            <?php query_posts("order=DESC&posts_per_page=1&category_name=Video"); ?>
+              <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+                <iframe
+                  class="youtube"
+                  src="<?php echo get_post_meta($post->ID, $campoVideo[0], true); ?>">
+                </iframe>
+              <?php endwhile; else: ?>
+            <?php endif; ?>
           </div>
         </div>
       </div> <!-- # Multimídia -->
