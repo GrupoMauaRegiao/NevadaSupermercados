@@ -122,12 +122,20 @@ Nevada.apps =
       texto.innerText = texto.innerText.slice(0, maxCaract) + '...'
     return
 
+  configIdIssuu: ->
+    embed = document.querySelector '.issuuembed'
+    link = embed.getAttribute 'data-configid'
+    id = link.match /0\/[0-9]*/g
+    embed.setAttribute 'data-configid', id[0]
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
   Apps.slider()
   Apps.controlarTamanhoString '.nome-produto p', 25
+  Apps.configIdIssuu()
   return
 
 window.onload = ->
