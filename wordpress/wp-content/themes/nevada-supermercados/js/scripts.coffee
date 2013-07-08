@@ -116,10 +116,15 @@ Nevada.apps =
     return
 
   controlarTamanhoString: (seletor, maxCaract) ->
-    texto = document.querySelector(seletor)
-
-    if texto.innerText.length > maxCaract
-      texto.innerText = texto.innerText.slice(0, maxCaract) + '...'
+    tag = document.querySelector(seletor)
+    if tag.textContent
+      texto = tag.textContent
+      if texto.length > maxCaract
+        tag.textContent = texto.slice(0, maxCaract) + '...'
+    else
+      texto = tag.innerText
+      if texto.length > maxCaract
+        tag.innerText = texto.slice(0, maxCaract) + '...'
     return
 
   configIdIssuu: ->
