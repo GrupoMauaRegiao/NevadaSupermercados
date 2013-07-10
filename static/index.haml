@@ -1,0 +1,181 @@
+!!! 5
+%html{:lang => "pt-br"}
+  %head
+    %meta{:charset => "UTF-8"}/
+    %meta{:name => "keywords", :content => ""}/
+    %meta{:name => "description", :content => ""}/
+    %meta{:name => "author", :content => ""}/
+    %link{:rel => "shortcut icon", :href => "imagens/favicon.ico"}/
+    %link{:rel => "stylesheet", :href => "css/styles.min.css"}/
+    /[if IE]
+      %link{:rel => "stylesheet", :href => "css/ie.min.css"}/
+    %title Rede Nevada Supermercados
+  %body 
+    .layout960px
+      .cabecalho
+        .logotipo
+          %a{:href => "#"}
+            %img{:src => "imagens/logotipo.png",
+                 :alt => "Rede Nevada Supermercados",
+                 :title => "Rede Nevada Supermercados"}/
+        .menu
+          %ul
+            %li
+              %a{:href => "#"} Home
+
+            %li
+              %a{:href => "#"} Quem somos <span>&#8250;</span>
+              %ul{:class => "submenu"}
+                -["Nossas Lojas", "Ações Sociais", "Trabalhe Conosco"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Produtos e Serviços <span>&#8250;</span>
+              %ul{:class => "submenu"}
+                -["Entrega em Domicílio", "Cartão da Loja", "Serviços, Cursos e Aletras"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Ofertas <span>&#8250;</span>
+              %ul{:class => "submenu"}
+                -["Promoções", "Jornal de Ofertas"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Colaboradores <span>&#8250;</span>
+              %ul{:class => "submenu"}
+                -["Nossos Parceiros", "Colaborador do Mês"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Localização
+
+            %li
+              %a{:href => "#"} Contato
+      / # Cabeçalho
+
+      .slides
+        .slide.esquerda
+          %img{:src => "imagens/banners/01.jpg", :alt => ""}/
+        .slide.centro
+          %img{:src => "imagens/banners/02.jpg", :alt => ""}/
+        .slide.direita
+          %img{:src => "imagens/banners/03.jpg", :alt => ""}/
+        .controles
+          .anterior
+          .proximo
+      / # Slides
+
+      .ofertas
+        .cabecalho-secao
+          %h2 Ofertas
+
+        .oferta
+          .imagem-produto
+            %img{:src => "imagens/produto01.jpg", :alt => ""}/
+          .informacao
+            .nome-produto
+              %p{:title => "Asa de Frango Kg."} Asa de Frango Kg.
+            .preco
+              %p <span>R$</span> 5,78
+
+        .oferta
+          .imagem-produto
+            %img{:src => "imagens/produto02.jpg", :alt => ""}/
+          .informacao
+            .nome-produto
+              %p{:title => "Bicoito Vitarella 400 g."} Bicoito Vitarella 400 g.
+            .preco
+              %p <span>R$</span> 2,79
+
+        .oferta
+          .imagem-produto
+            %img{:src => "imagens/produto03.jpg", :alt => ""}/
+          .informacao
+            .nome-produto
+              %p{:title => "Margarina Qualy 500 g."} Margarina Qualy 500 g.
+            .preco
+              %p <span>R$</span> 3,79
+
+        .oferta
+          .imagem-produto
+            %img{:src => "imagens/produto04.jpg", :alt => ""}/
+          .informacao
+            .nome-produto
+              %p{:title => "Bicoito Vitarella 400 g."} Bicoito Vitarella 400 g.
+            .preco
+              %p <span>R$</span> 2,79
+      / # Ofertas
+
+      .multimidia
+        .jornal
+          %div{:class => "issuuembed", :"data-configid" => "0/3739593"}
+          .rodape-jornal
+            %p Jornal de Ofertas
+        .videos
+          .cabecalho-secao
+            %h2 Vídeos
+          .player
+            %iframe{:src => "http://www.youtube.com/embed/lempeC72Tyg"}
+      / # Multimídia
+
+      .sombra-topo
+
+      .campanhas
+        .campanha1
+          .hortifruti
+            %p Terça-feira é<br /> dia de hortifruti
+        .campanha2
+          .carne
+            %p Quinta-feira é<br /> dia de carne
+
+        .sombra-lateral
+
+        .cartao
+          .animacao-cartao
+          .informacao
+            %p Faça já o se <br /> <span>Cartão Nevada</span>
+            %p Cheio de vantagens
+      / # Campanhas
+
+      .rodape
+        .menu
+          %ul
+            %li
+              %a{:href => "#"} Quem somos
+              %ul
+                -["Nossas Lojas", "Ações Sociais", "Trabalhe Conosco"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Produtos e Serviços
+              %ul
+                -["Entrega em Domicílio", "Cartão da Loja", "Serviços, Cursos e Aletras"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Ofertas
+              %ul
+                -["Promoções", "Jornal de Ofertas"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+            %li
+              %a{:href => "#"} Colaboradores
+              %ul
+                -["Nossos Parceiros", "Colaborador do Mês"].each do |item|
+                  %li
+                    %a{:href => "#"}> #{item}
+
+        .logotipo-pinguim
+          %img{:src => "imagens/pinguim.png", :alt => ""}/
+      / # Rodapé
+    / # layout960px
+
+    %script{:src => "js/scripts.min.js"}
