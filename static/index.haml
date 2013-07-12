@@ -59,12 +59,9 @@
       / # Cabeçalho
 
       .slides
-        .slide.esquerda
-          %img{:src => "imagens/banners/01.jpg", :alt => ""}/
-        .slide.centro
-          %img{:src => "imagens/banners/02.jpg", :alt => ""}/
-        .slide.direita
-          %img{:src => "imagens/banners/03.jpg", :alt => ""}/
+        - ["esquerda", "centro", "direita"].each_with_index do |item, index|
+          .slide{:class => "#{item}"}
+            %img{:src => "imagens/banners/0#{index + 1}.jpg", :alt => ""}/
         .controles
           .anterior
           .proximo
