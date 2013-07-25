@@ -36,110 +36,117 @@ Nevada.apps =
 
   # Slideshow
   slider: ->
-    interval = window.interval
     slides = document.querySelectorAll '.slide'
-    n = 0
 
-    listeners = ->
-      controles = document.querySelector '.controles'
-      btnAnterior = document.querySelector '.anterior'
-      btnProximo = document.querySelector '.proximo'
+    if slides[0]
+      interval = window.interval
+      n = 0
 
-      btnAnterior.addEventListener 'click', anterior
-      btnProximo.addEventListener 'click', proximo
-      controles.addEventListener 'mouseover', pause
-      controles.addEventListener 'mouseout', play
-      return
-
-    destacarSlide = (n) ->
-      posicoes = [
-        'esquerda'
-        'centro'
-        'direita'
-      ]
-
-      arranjos = [
-        1, 0, 2
-        2, 1, 0
-        0, 2, 1
-      ]
-
-      if n is 0
-        for item, i in arranjos[0..2] by 1
-          slides[item].setAttribute 'class', 'slide ' + posicoes[i]
-      else if n is 1
-        for item, i in arranjos[3..5] by 1
-          slides[item].setAttribute 'class', 'slide ' + posicoes[i]
-      else if n is 2
-        for item, i in arranjos[6..8] by 1
-          slides[item].setAttribute 'class', 'slide ' + posicoes[i]
-      return
-
-    # Controla o intervalo entre a troca de slides
-    timer = ->
-      # tempo = n,
-      # sendo `n` o tempo desejado em segundos
-      tempo = 4
-      paraSegundos = Nevada.apps.converterSegParaMili
-      interval = setInterval ->
-        proximo()
+      listeners = ->
+        controles = document.querySelector '.controles'
+        btnAnterior = document.querySelector '.anterior'
+        btnProximo = document.querySelector '.proximo'
+        btnAnterior.addEventListener 'click', anterior
+        btnProximo.addEventListener 'click', proximo
+        controles.addEventListener 'mouseover', pause
+        controles.addEventListener 'mouseout', play
         return
-      , paraSegundos tempo
-      return
 
-    # Botões "<" (anterior) e ">" (próximo)
-    anterior = ->
-      if n > 0 then n -= 1 else n = 2
-      destacarSlide n
-      return
+      destacarSlide = (n) ->
+        posicoes = [
+          'esquerda'
+          'centro'
+          'direita'
+        ]
 
-    proximo = ->
-      if n < slides.length - 1 then n += 1 else n = 0
-      destacarSlide n
-      return
+        arranjos = [
+          1, 0, 2
+          2, 1, 0
+          0, 2, 1
+        ]
 
-    # Interrompe/continua a apresentação se o cursor
-    # estiver/não estiver sobre ela
-    pause = ->
-      clearInterval interval
-      return
+        if n is 0
+          for item, i in arranjos[0..2] by 1
+            slides[item].setAttribute 'class', 'slide ' + posicoes[i]
+        else if n is 1
+          for item, i in arranjos[3..5] by 1
+            slides[item].setAttribute 'class', 'slide ' + posicoes[i]
+        else if n is 2
+          for item, i in arranjos[6..8] by 1
+            slides[item].setAttribute 'class', 'slide ' + posicoes[i]
+        return
 
-    play = ->
-      timer()
-      return
+      # Controla o intervalo entre a troca de slides
+      timer = ->
+        # tempo = n,
+        # sendo `n` o tempo desejado em segundos
+        tempo = 4
+        paraSegundos = Nevada.apps.converterSegParaMili
+        interval = setInterval ->
+          proximo()
+          return
+        , paraSegundos tempo
+        return
 
-    # Inicializa Slideshow
-    inicializar = do ->
-      listeners()
-      timer()
-      return
+      # Botões "<" (anterior) e ">" (próximo)
+      anterior = ->
+        if n > 0 then n -= 1 else n = 2
+        destacarSlide n
+        return
+
+      proximo = ->
+        if n < slides.length - 1 then n += 1 else n = 0
+        destacarSlide n
+        return
+
+      # Interrompe/continua a apresentação se o cursor
+      # estiver/não estiver sobre ela
+      pause = ->
+        clearInterval interval
+        return
+
+      play = ->
+        timer()
+        return
+
+      # Inicializa Slideshow
+      inicializar = do ->
+        listeners()
+        timer()
+        return
     return
 
   controlarTamanhoString: (seletor, maxCaract) ->
     tag = document.querySelector(seletor)
-    if tag.textContent
-      texto = tag.textContent
-      if texto.length > maxCaract
-        tag.textContent = texto.slice(0, maxCaract) + '...'
-    else
-      texto = tag.innerText
-      if texto.length > maxCaract
-        tag.innerText = texto.slice(0, maxCaract) + '...'
+
+    if tag
+      if tag.textContent
+        texto = tag.textContent
+        if texto.length > maxCaract
+          tag.textContent = texto.slice(0, maxCaract) + '...'
+      else
+        texto = tag.innerText
+        if texto.length > maxCaract
+          tag.innerText = texto.slice(0, maxCaract) + '...'
     return
 
   configIdIssuu: ->
     embed = document.querySelector '.issuuembed'
-    link = embed.getAttribute 'data-configid'
-    id = link.match /0\/[0-9]*/g
-    embed.setAttribute 'data-configid', id[0]
+
+    if embed
+      link = embed.getAttribute 'data-configid'
+      id = link.match /0\/[0-9]*/g
+      embed.setAttribute 'data-configid', id[0]
     return
 
   configIdYouTube: ->
     iframe = document.querySelector '.youtube'
-    link = iframe.getAttribute 'src'
-    id = link.match /[\w-]{11}/
-    iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
-    return
+
+    if iframe
+      link = iframe.getAttribute 'src'
+      id = link.match /[\w-]{11}/
+      iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
+      return
 
 Apps = Nevada.apps
 do ->

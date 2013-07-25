@@ -13,7 +13,11 @@
     <title><?php bloginfo('name'); ?></title>
   </head>
   <body>
+      <?php if (!is_home()): ?>
+        <div class="barra-superior"></div>
+      <?php endif ?>
     <div class="layout960px">
+
       <div class="cabecalho">
         <div class="logotipo">
           <a href="<?php bloginfo('url'); ?>">
@@ -26,14 +30,14 @@
         <div class="menu">
           <ul>
             <li>
-              <a href="#">Home</a>
+              <a href="http://localhost/NevadaSupermercados/wordpress/index.php">Home</a>
             </li>
             <li>
-              <a href="#">Quem somos <span>&#8250;</span></a>
+              <a href="http://localhost/NevadaSupermercados/wordpress/index.php/quem-somos">Quem somos <span>&#8250;</span></a>
               <ul class="submenu">
-                <li><a href="#">Nossas Lojas</a></li>
-                <li><a href="#">Ações Sociais</a></li>
-                <li><a href="#">Trabalhe Conosco</a></li>
+                <li><a href="http://localhost/NevadaSupermercados/wordpress/index.php/quem-somos/nossas-lojas">Nossas Lojas</a></li>
+                <li><a href="http://localhost/NevadaSupermercados/wordpress/index.php/quem-somos/acoes-sociais">Ações Sociais</a></li>
+                <li><a href="http://localhost/NevadaSupermercados/wordpress/index.php/quem-somos/trabalhe-conosco">Trabalhe Conosco</a></li>
               </ul>
             </li>
             <li>
