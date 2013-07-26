@@ -1,7 +1,7 @@
 <div class="cabecalho-pagina <?php echo $post->post_name; ?>">
   <div class="titulo-pagina">
-    <h1><?php the_title(); ?></h1>
-    <h2>Nossas lojas</h2>
+    <h1>Quem somos</h1>
+    <h2><?php the_title(); ?></h2>
   </div>
 </div>
 
