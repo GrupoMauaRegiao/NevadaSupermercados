@@ -62,4 +62,10 @@
     marca, agora todas as lojas formam o Grupo Nevada de Supermercados, 
     uma empresa sólida que emprega diretamente mais de 450 pessoas.</p>
   </div>
+
+  <div class="imagem">
+    <div class="proprietarios">
+      <img src="<?php echo get_template_directory_uri(); ?>/imagens/proprietarios.jpg" alt="" />
+    </div>
+  </div>
 </div>
