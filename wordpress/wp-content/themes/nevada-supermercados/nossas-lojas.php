@@ -68,4 +68,9 @@
       <img src="<?php echo get_template_directory_uri(); ?>/imagens/proprietarios.jpg" alt="" />
     </div>
   </div>
+
+  <div class="cabecalho-textual">
+    <h2>As Lojas</h2>
+  </div>
+
 </div>
