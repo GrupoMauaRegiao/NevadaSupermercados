@@ -1,3 +1,10 @@
+<?php
+  $campoSlideNossasLojas = array(
+    "Imagem Slide Nossas Lojas"
+  );
+?>
+
+
 <div class="cabecalho-pagina <?php echo $post->post_name; ?>">
   <div class="titulo-pagina">
     <h1>Quem somos</h1>
@@ -72,5 +79,25 @@
   <div class="cabecalho-textual">
     <h2>As Lojas</h2>
   </div>
+
+  <div class="apresentacao-slides">
+    <div class="player">
+      <div class="imagem-destacada">
+        <?php query_posts("order=DESC&posts_per_page=1&category_name='Slide Nossas Lojas'"); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=735&amp;h=491" alt="" />
+          <?php endwhile; else: ?>
+        <?php endif; ?>
+      </div>
+
+      <div class="lista-imagem">
+        <?php query_posts("order=DESC&posts_per_page=20&category_name='Slide Nossas Lojas'"); ?>
+          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=150&amp;h=100" alt="" />
+          <?php endwhile; else: ?>
+        <?php endif; ?>
+      </div>
+    </div>
+  </div> <!-- Apresentação de Slides -->
 
 </div>

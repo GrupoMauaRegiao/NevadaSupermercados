@@ -5,7 +5,7 @@ Nevada.apps =
 
   carregarScripts: ->
     scripts = document.getElementsByTagName('script')[0]
-    carregar = (url) ->
+    _carregar = (url) ->
       script = document.createElement 'script'
       script.async = true
       script.src = url
@@ -13,7 +13,7 @@ Nevada.apps =
       return
 
     # Lista de scripts
-    carregar 'http://e.issuu.com/embed.js'
+    _carregar 'http://e.issuu.com/embed.js'
     return
 
   removerBackgroundMenu: ->
@@ -42,17 +42,17 @@ Nevada.apps =
       interval = window.interval
       n = 0
 
-      listeners = ->
+      _listeners = ->
         controles = document.querySelector '.controles'
         btnAnterior = document.querySelector '.anterior'
         btnProximo = document.querySelector '.proximo'
-        btnAnterior.addEventListener 'click', anterior
-        btnProximo.addEventListener 'click', proximo
-        controles.addEventListener 'mouseover', pause
-        controles.addEventListener 'mouseout', play
+        btnAnterior.addEventListener 'click', _anterior
+        btnProximo.addEventListener 'click', _proximo
+        controles.addEventListener 'mouseover', _pause
+        controles.addEventListener 'mouseout', _play
         return
 
-      destacarSlide = (n) ->
+      _destacarSlide = (n) ->
         posicoes = [
           'esquerda'
           'centro'
@@ -77,42 +77,42 @@ Nevada.apps =
         return
 
       # Controla o intervalo entre a troca de slides
-      timer = ->
+      _timer = ->
         # tempo = n,
         # sendo `n` o tempo desejado em segundos
         tempo = 4
         paraSegundos = Nevada.apps.converterSegParaMili
         interval = setInterval ->
-          proximo()
+          _proximo()
           return
         , paraSegundos tempo
         return
 
       # Botões "<" (anterior) e ">" (próximo)
-      anterior = ->
+      _anterior = ->
         if n > 0 then n -= 1 else n = 2
-        destacarSlide n
+        _destacarSlide n
         return
 
-      proximo = ->
+      _proximo = ->
         if n < slides.length - 1 then n += 1 else n = 0
-        destacarSlide n
+        _destacarSlide n
         return
 
       # Interrompe/continua a apresentação se o cursor
       # estiver/não estiver sobre ela
-      pause = ->
+      _pause = ->
         clearInterval interval
         return
 
-      play = ->
-        timer()
+      _play = ->
+        _timer()
         return
 
       # Inicializa Slideshow
       inicializar = do ->
-        listeners()
-        timer()
+        _listeners()
+        _timer()
         return
     return
 
@@ -146,7 +146,33 @@ Nevada.apps =
       link = iframe.getAttribute 'src'
       id = link.match /[\w-]{11}/
       iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
-      return
+    return
+
+  slidesInternas: ->
+    imgs = document.querySelectorAll '.lista-imagem img'
+    imgDestacada = document.querySelector '.imagem-destacada img'
+
+    if imgs
+      _listeners = ->
+        for item, i in imgs
+          imgs[i].addEventListener 'mouseover', _exibir
+        return
+
+      _exibir = ->
+        src = this.getAttribute 'src'
+        srcPrincipal = src.substr(0, src.length - 11) + 'w=735&h=491'
+        imgDestacada.setAttribute 'src', srcPrincipal
+
+        for item, i in imgs
+          imgs[i].setAttribute 'class', ''
+
+          this.setAttribute 'class', 'slide-ativo'
+        return
+
+      inicializar = do ->
+        _listeners()
+        return
+    return
 
 Apps = Nevada.apps
 do ->
@@ -156,6 +182,7 @@ do ->
   Apps.controlarTamanhoString '.nome-produto p', 25
   Apps.configIdIssuu()
   Apps.configIdYouTube()
+  Apps.slidesInternas()
   return
 
 window.onload = ->
