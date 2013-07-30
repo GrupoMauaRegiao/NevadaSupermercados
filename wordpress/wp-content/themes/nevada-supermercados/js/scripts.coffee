@@ -148,29 +148,39 @@ Nevada.apps =
       iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
     return
 
-  slidesInternas: ->
+  sliderPagInternas: ->
     imgs = document.querySelectorAll '.lista-imagem img'
-    imgDestacada = document.querySelector '.imagem-destacada img'
 
     if imgs
+      imgDestacada = document.querySelector '.imagem-destacada img'
+      WIDTH = 735
+      HEIGHT = 491
+
       _listeners = ->
-        for item, i in imgs
-          imgs[i].addEventListener 'mouseover', _exibir
+        for item, i in imgs by 1
+          imgs[i].addEventListener 'click', _exibir
+        return
+
+      _ativarSlide = (elemento) ->
+        elemento.setAttribute 'class', 'slide-ativo'
+        return
+
+      _desativarSlides = ->
+        for item, i in imgs by 1
+          imgs[i].setAttribute 'class', ''
         return
 
       _exibir = ->
-        src = this.getAttribute 'src'
-        srcPrincipal = src.substr(0, src.length - 11) + 'w=735&h=491'
-        imgDestacada.setAttribute 'src', srcPrincipal
-
-        for item, i in imgs
-          imgs[i].setAttribute 'class', ''
-
-          this.setAttribute 'class', 'slide-ativo'
+        srcAtivo = this.getAttribute 'src'
+        src = srcAtivo.substr(0, srcAtivo.length - 11) + 'w=' + WIDTH + '&' + 'h=' + HEIGHT
+        imgDestacada.setAttribute 'src', src
+        _desativarSlides()
+        _ativarSlide this
         return
 
       inicializar = do ->
         _listeners()
+        _ativarSlide imgs[0]
         return
     return
 
@@ -182,7 +192,7 @@ do ->
   Apps.controlarTamanhoString '.nome-produto p', 25
   Apps.configIdIssuu()
   Apps.configIdYouTube()
-  Apps.slidesInternas()
+  Apps.sliderPagInternas()
   return
 
 window.onload = ->
