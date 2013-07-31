@@ -10,6 +10,7 @@
     <!--[if IE]>
       <link rel="stylesheet" type="text/css" href="css/ie.min.css" />
     <![endif]-->
+    <link href="http://fonts.googleapis.com/css?family=Monda" rel="stylesheet" />
     <title><?php bloginfo('name'); ?> <?php if (!is_home()): ?> &#8212; <?php echo ucwords(get_the_title()); ?><?php endif; ?></title>
   </head>
   <body>

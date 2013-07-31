@@ -93,10 +93,20 @@
       <div class="lista-imagem">
         <?php query_posts("order=DESC&posts_per_page=20&category_name='Slide Nossas Lojas'"); ?>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=150&amp;h=100" alt="" />
+            <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=100&amp;h=080" alt="" />
           <?php endwhile; else: ?>
         <?php endif; ?>
       </div>
+
+      <div class="controles">
+        <div class="voltar">
+          <a href="#">&laquo;</a>
+        </div>
+        <div class="avancar">
+          <a href="#">&raquo;</a>
+        </div>
+      </div>
+
     </div>
   </div> <!-- Apresentação de Slides -->
 

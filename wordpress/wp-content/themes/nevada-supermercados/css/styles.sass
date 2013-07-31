@@ -68,6 +68,9 @@ body
   body
     overflow: visible
 
+.esconder
+  display: none
+
 .sem-background
   background: none !important
 
@@ -231,6 +234,9 @@ body
       margin: 0 0 40px 0
 
     .apresentacao-slides
+      width: 860px
+      height: 610px
+
       .player
         .imagem-destacada
           width: 735px
@@ -244,11 +250,13 @@ body
             border: 1px solid rgb(255, 255, 255)
 
         .lista-imagem
+          width: 860px
+          height: 125px
           text-align: center
 
           img
             border-radius: 5px
-            margin: 5px
+            margin: 2px
             -webkit-filter: grayscale(50%)
             -moz-filter: grayscale(50%)
             -o-filter: grayscale(50%)
@@ -258,7 +266,7 @@ body
           .slide-ativo
             width: 200px
             height: 130px
-            margin: -23px 0 0 0
+            margin: -46px 0 0 0
             box-shadow: 0 2px 3px rgb(100, 100, 100)
             border: 1px solid rgb(255, 255, 255)
             -webkit-filter: grayscale(0%)
@@ -266,6 +274,40 @@ body
             -o-filter: grayscale(0%)
             -ms-filter: grayscale(0%)
             filter: grayscale(0%)
+
+        .controles
+          width: 734px
+          margin: -122px 0 0 63px
+          position: absolute
+
+          .voltar,
+          .avancar
+            background: rgb(200, 200, 200)
+            position: absolute
+            float: left
+            padding: 5px 10px 10px 13px
+
+          .voltar:hover,
+          .avancar:hover
+            background: rgb(230, 230, 230)
+
+            a
+              color: rgb(0, 0, 0)
+
+          .voltar
+            border-radius: 30px 0 0 30px
+            left: 0
+
+          .avancar
+            border-radius: 0 30px 30px 0
+            right: 0
+
+          .voltar a,
+          .avancar a
+            font: 40px "Monda", Arial, sans-serif
+            text-decoration: none
+            color: rgb(100, 100, 100)
+            outline: none
 
   .ofertas
     width: 880px
@@ -555,6 +597,7 @@ body
   .rodape
     height: 185px
     float: left
+    margin: 100px 0 0 0
 
     .menu
       width: 960px

@@ -153,13 +153,34 @@ Nevada.apps =
 
     if imgs
       imgDestacada = document.querySelector '.imagem-destacada img'
+      botaoVoltar = document.querySelector '.voltar a'
+      botaoAvancar = document.querySelector '.avancar a'
       WIDTH = 735
       HEIGHT = 491
 
       _listeners = ->
         for item, i in imgs by 1
           imgs[i].addEventListener 'click', _exibir
+
+        botaoVoltar.addEventListener 'click', _voltar
+        botaoAvancar.addEventListener 'click', _avancar
         return
+
+      _voltar = (evt) ->
+        evt.preventDefault()
+        for item, i in imgs by 1
+          if i >= 5
+            imgs[i].style.display = 'none'
+          else if i < 5
+            imgs[i].style.display = ''
+
+      _avancar = (evt) ->
+        evt.preventDefault()
+        for item, i in imgs by 1
+          if i >= 5
+            imgs[i].style.display = ''
+          else if i < 5
+            imgs[i].style.display = 'none'
 
       _ativarSlide = (elemento) ->
         elemento.setAttribute 'class', 'slide-ativo'
@@ -168,6 +189,12 @@ Nevada.apps =
       _desativarSlides = ->
         for item, i in imgs by 1
           imgs[i].setAttribute 'class', ''
+        return
+
+      _esconderSlides = ->
+        for item, i in imgs by 1
+          if i >= 5
+            imgs[i].style.display = 'none'
         return
 
       _exibir = ->
@@ -180,6 +207,7 @@ Nevada.apps =
 
       inicializar = do ->
         _listeners()
+        _esconderSlides()
         _ativarSlide imgs[0]
         return
     return
