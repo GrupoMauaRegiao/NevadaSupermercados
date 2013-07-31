@@ -212,6 +212,26 @@ Nevada.apps =
         return
     return
 
+  animBarraSup: ->
+    barra = document.querySelector '.barra-superior'
+
+    if barra
+      _listeners = ->
+        window.addEventListener 'scroll', _animacao
+        return
+
+      _animacao = ->
+        if this.scrollY > 0
+          barra.style.height = '0'
+        else if this.scrollY is 0
+          barra.style.height = '15px'
+        return
+
+      inicializar = do ->
+        _listeners()
+        return
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.carregarScripts()
@@ -220,6 +240,7 @@ do ->
   Apps.controlarTamanhoString '.nome-produto p', 25
   Apps.configIdIssuu()
   Apps.configIdYouTube()
+  Apps.animBarraSup()
   Apps.sliderPagInternas()
   return
 
