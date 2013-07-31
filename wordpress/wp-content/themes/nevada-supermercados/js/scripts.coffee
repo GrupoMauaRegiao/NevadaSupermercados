@@ -232,6 +232,27 @@ Nevada.apps =
         return
     return
 
+  animFilterProprietarios: ->
+    foto = document.querySelector '.proprietarios img'
+
+    if foto
+      _listeners = ->
+        window.addEventListener 'scroll', _animacao
+        return
+
+      _animacao = ->
+        if this.scrollY > 800
+          foto.style.webkitFilter = 'grayscale(0%)'
+        else if this.scrollY < 800
+          foto.style.webkitFilter = 'grayscale(100%)'
+        return
+
+      inicializar = do ->
+        _listeners()
+        return
+
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.carregarScripts()
@@ -241,6 +262,7 @@ do ->
   Apps.configIdIssuu()
   Apps.configIdYouTube()
   Apps.animBarraSup()
+  Apps.animFilterProprietarios()
   Apps.sliderPagInternas()
   return
 
