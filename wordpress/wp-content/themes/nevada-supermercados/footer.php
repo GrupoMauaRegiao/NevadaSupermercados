@@ -2,9 +2,9 @@
         <div class="menu">
           <ul>
             <li>
-              <a href="#">Quem somos</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos</a>
               <ul>
-                <li><a href="">Nossos Lojas</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/nossas-lojas">Nossos Lojas</a></li>
                 <li><a href="">Ações Socias</a></li>
                 <li><a href="">Trabalhe Conosco</a></li>
               </ul>

@@ -151,7 +151,7 @@ Nevada.apps =
   sliderPagInternas: ->
     imgs = document.querySelectorAll '.lista-imagem img'
 
-    if imgs
+    if imgs[0]
       imgDestacada = document.querySelector '.imagem-destacada img'
       botaoVoltar = document.querySelector '.voltar a'
       botaoAvancar = document.querySelector '.avancar a'
@@ -210,7 +210,7 @@ Nevada.apps =
         _esconderSlides()
         _ativarSlide imgs[0]
         return
-    return
+      return
 
   animBarraSup: ->
     barra = document.querySelector '.barra-superior'
@@ -243,6 +243,7 @@ Nevada.apps =
       _animacao = ->
         if this.scrollY > 800
           foto.style.webkitFilter = 'grayscale(0%)'
+
         else if this.scrollY < 800
           foto.style.webkitFilter = 'grayscale(100%)'
         return
