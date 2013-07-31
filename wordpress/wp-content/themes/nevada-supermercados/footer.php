@@ -26,10 +26,6 @@
             </li>
             <li>
               <a href="#">Colaboradores</a>
-              <ul>
-                <li><a href="#">Nossos parceiros</a></li>
-                <li><a href="#">Colaborador do mês</a></li>
-              </ul>
             </li>
           </ul>
         </div>

@@ -57,11 +57,7 @@
               </ul>
             </li>
             <li>
-              <a href="#">Colaboradores <span>&#8250;</span></a>
-              <ul class="submenu">
-                <li><a href="#">Nossos parceiros</a></li>
-                <li><a href="#">Colaborador do mês</a></li>
-              </ul>
+              <a href="<?php bloginfo('url'); ?>/index.php/colaboradores">Colaboradores</a>
             </li>
             <li>
               <a href="#">Localização</a>
