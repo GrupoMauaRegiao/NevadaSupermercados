@@ -91,21 +91,23 @@
       </div>
 
       <div class="lista-imagem">
-        <?php query_posts("order=DESC&posts_per_page=20&category_name='Slide Nossas Lojas'"); ?>
+        <?php $posts = query_posts("order=DESC&posts_per_page=20&category_name='Slide Nossas Lojas'"); ?>
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=100&amp;h=080" alt="" />
           <?php endwhile; else: ?>
         <?php endif; ?>
       </div>
 
-      <div class="controles">
-        <div class="voltar">
-          <a href="#">&laquo;</a>
+      <?php if (count($posts) > 1): ?>
+        <div class="controles">
+          <div class="voltar">
+            <a href="#">&laquo;</a>
+          </div>
+          <div class="avancar">
+            <a href="#">&raquo;</a>
+          </div>
         </div>
-        <div class="avancar">
-          <a href="#">&raquo;</a>
-        </div>
-      </div>
+      <?php endif ?>
 
     </div>
   </div> <!-- Apresentação de Slides -->

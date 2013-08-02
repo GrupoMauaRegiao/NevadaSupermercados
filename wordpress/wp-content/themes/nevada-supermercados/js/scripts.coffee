@@ -170,8 +170,11 @@ Nevada.apps =
       _listeners = ->
         for item, i in imgs by 1
           imgs[i].addEventListener 'click', _ativarClick
-        botaoVoltar.addEventListener 'click', _voltar
-        botaoAvancar.addEventListener 'click', _avancar
+
+        if botaoVoltar
+          botaoVoltar.addEventListener 'click', _voltar
+        if botaoAvancar
+          botaoAvancar.addEventListener 'click', _avancar
         return
 
       _ativarClick = ->
