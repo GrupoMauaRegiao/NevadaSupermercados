@@ -246,9 +246,9 @@ Nevada.apps =
         return
 
       _animacao = ->
-        if this.scrollY > 0
+        if this.pageYOffset > 0
           barra.style.height = '0'
-        else if this.scrollY is 0
+        else if this.pageYOffset is 0
           barra.style.height = '15px'
         return
 
@@ -266,10 +266,10 @@ Nevada.apps =
         return
 
       _animacao = ->
-        if this.scrollY > 800
+        if this.pageYOffset > 800
           foto.style.webkitFilter = 'grayscale(0%)'
 
-        else if this.scrollY < 800
+        else if this.pageYOffset < 800
           foto.style.webkitFilter = 'grayscale(100%)'
         return
 
