@@ -153,36 +153,32 @@ Nevada.apps =
 
     if imgs[0]
       imgDestacada = document.querySelector '.imagem-destacada img'
-      botaoVoltar = document.querySelector '.voltar a'
-      botaoAvancar = document.querySelector '.avancar a'
+      botaoVoltar = document.querySelector '.voltar'
+      botaoAvancar = document.querySelector '.avancar'
       WIDTH = 735
       HEIGHT = 491
+      nSlide = 0
+      paginasVisiveis = 5
+
+      _nodeListParaArray = ->
+        arr = []
+        for i in imgs
+          arr.push i
+        arr
+      arrImgs = _nodeListParaArray()
 
       _listeners = ->
         for item, i in imgs by 1
-          imgs[i].addEventListener 'click', _exibir
-
+          imgs[i].addEventListener 'click', _ativarClick
         botaoVoltar.addEventListener 'click', _voltar
         botaoAvancar.addEventListener 'click', _avancar
         return
 
-      _voltar = (evt) ->
-        evt.preventDefault()
-        for item, i in imgs by 1
-          if i >= 5
-            imgs[i].style.display = 'none'
-          else if i < 5
-            imgs[i].style.display = ''
+      _ativarClick = ->
+        _exibir this
+        return
 
-      _avancar = (evt) ->
-        evt.preventDefault()
-        for item, i in imgs by 1
-          if i >= 5
-            imgs[i].style.display = ''
-          else if i < 5
-            imgs[i].style.display = 'none'
-
-      _ativarSlide = (elemento) ->
+      _ativarSlideMiniatura = (elemento) ->
         elemento.setAttribute 'class', 'slide-ativo'
         return
 
@@ -191,24 +187,52 @@ Nevada.apps =
           imgs[i].setAttribute 'class', ''
         return
 
+      _voltar = (evt) ->
+        evt.preventDefault()
+        if nSlide > 0
+          nSlide -= 1
+          if nSlide % paginasVisiveis is 4
+            for i in arrImgs.slice nSlide + 1, arrImgs.length
+              i.style.display = 'none'
+            for i in arrImgs.slice nSlide - 4, nSlide + 1
+              i.style.display = ''
+          _desativarSlides()
+          _exibir imgs[nSlide]
+          _ativarSlideMiniatura imgs[nSlide]
+        return
+
+      _avancar = (evt) ->
+        evt.preventDefault()
+        if nSlide < imgs.length - 1
+          nSlide += 1
+          if nSlide % paginasVisiveis is 0
+            for i in arrImgs.slice(0, nSlide)
+              i.style.display = 'none'
+            for i in arrImgs.slice(nSlide, nSlide + paginasVisiveis)
+              i.style.display = ''
+          _desativarSlides()
+          _exibir imgs[nSlide]
+          _ativarSlideMiniatura imgs[nSlide]
+        return
+
       _esconderSlides = ->
         for item, i in imgs by 1
           if i >= 5
             imgs[i].style.display = 'none'
         return
 
-      _exibir = ->
-        srcAtivo = this.getAttribute 'src'
+      _exibir = (img) ->
+        srcAtivo = img.getAttribute 'src'
         src = srcAtivo.substr(0, srcAtivo.length - 11) + 'w=' + WIDTH + '&' + 'h=' + HEIGHT
         imgDestacada.setAttribute 'src', src
         _desativarSlides()
-        _ativarSlide this
+        _ativarSlideMiniatura img
         return
 
       inicializar = do ->
         _listeners()
         _esconderSlides()
-        _ativarSlide imgs[0]
+        _ativarSlideMiniatura imgs[0]
         return
       return
 
@@ -251,7 +275,6 @@ Nevada.apps =
       inicializar = do ->
         _listeners()
         return
-
     return
 
 Apps = Nevada.apps
