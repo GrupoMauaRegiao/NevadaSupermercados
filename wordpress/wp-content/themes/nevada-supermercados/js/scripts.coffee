@@ -175,6 +175,7 @@ Nevada.apps =
         return
 
       _ativarClick = ->
+        nSlide = arrImgs.indexOf this
         _exibir this
         return
 
