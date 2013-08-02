@@ -80,36 +80,44 @@
     <h2>As Lojas</h2>
   </div>
 
-  <div class="apresentacao-slides">
-    <div class="player">
-      <div class="imagem-destacada">
-        <?php query_posts("order=DESC&posts_per_page=1&category_name='Slide Nossas Lojas'"); ?>
-          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=735&amp;h=491" alt="" />
-          <?php endwhile; else: ?>
-        <?php endif; ?>
-      </div>
+  <?php
+    function query_slider($nPosts) {
+      return query_posts("order=DESC&posts_per_page=$nPosts&category_name='Slide Nossas Lojas'");
+    }
+  ?>
 
-      <div class="lista-imagem">
-        <?php $posts = query_posts("order=DESC&posts_per_page=20&category_name='Slide Nossas Lojas'"); ?>
-          <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=100&amp;h=080" alt="" />
-          <?php endwhile; else: ?>
-        <?php endif; ?>
-      </div>
-
-      <?php if (count($posts) > 1): ?>
-        <div class="controles">
-          <div class="voltar">
-            <a href="#">&laquo;</a>
-          </div>
-          <div class="avancar">
-            <a href="#">&raquo;</a>
-          </div>
+  <?php if (count(query_slider(20)) > 0): ?>
+    <div class="apresentacao-slides">
+      <div class="player">
+        <div class="imagem-destacada">
+          <?php query_slider(1); ?>
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+              <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=735&amp;h=491" alt="" />
+            <?php endwhile; else: ?>
+          <?php endif; ?>
         </div>
-      <?php endif ?>
 
-    </div>
-  </div> <!-- Apresentação de Slides -->
+        <div class="lista-imagem">
+          <?php query_slider(20); ?>
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+              <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=100&amp;h=080" alt="" />
+            <?php endwhile; else: ?>
+          <?php endif; ?>
+        </div>
+
+        <?php if (count(query_slider(20)) > 1): ?>
+          <div class="controles">
+            <div class="voltar">
+              <a href="#">&laquo;</a>
+            </div>
+            <div class="avancar">
+              <a href="#">&raquo;</a>
+            </div>
+          </div>
+        <?php endif ?>
+
+      </div>
+    </div> <!-- Apresentação de Slides -->
+  <?php endif ?>
 
 </div>
