@@ -212,6 +212,9 @@ body
   .nossas-lojas
     background: rgb(0, 0, 0) url("../imagens/cabecalho-nossas-lojas.jpg") center no-repeat
 
+  .acoes-sociais
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-acoes-sociais.jpg") center no-repeat
+
   .textual
     float: left
     box-shadow: 0 -250px 50px rgb(240, 240, 240)
@@ -219,7 +222,11 @@ body
     position: relative
     padding: 50px
 
-    .cabecalho-textual
+    .evento-social
+      margin: 0 0 50px 0
+
+    .cabecalho-textual,
+    .cabecalho-textual-acoes-sociais
       color: rgb(77, 77, 77)
       text-transform: uppercase
       font-size: 30px
@@ -229,9 +236,20 @@ body
         background: rgb(255, 255, 255) url("../imagens/background-titulo-pagina.png") left center no-repeat
         padding: 0 0 20px 85px
 
+    .cabecalho-textual-acoes-sociais
+      padding: 20px 0 0 0
+      margin: 0 0 40px 0
+      
+      h2
+        box-shadow: 0 10px 10px rgb(240, 240, 240)
+        padding: 12px 70px
+        background-image:  url("../imagens/setas-acoes-sociais.png"), url("../imagens/bg-titulo-acoes-sociais.png")
+        background-color: rgb(255, 255, 255)
+        background-position: 2% center, left center
+        background-repeat: no-repeat, repeat-x
+
     .texto
       padding: 0 30px 0 30px
-      margin: 0 0 70px 0
 
       p
         font: 17px ProximaLight, Arial, sans-serif
@@ -239,9 +257,12 @@ body
         text-align: center
         margin: 0 0 20px 0
 
+        i, em
+          font-style: italic
+
     .imagem
       text-align: center
-      margin: 0 0 40px 0
+      margin: 70px 0 40px 0
 
       .proprietarios
         img

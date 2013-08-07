@@ -36,9 +36,9 @@
             <li>
               <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos <span>&#8250;</span></a>
               <ul class="submenu">
-                <li><a href="<?php bloginfo('url'); ?>/index.php/nossas-lojas">Nossas Lojas</a></li>
-                <li><a href="http://localhost/NevadaSupermercados/wordpress/index.php/quem-somos/acoes-sociais">Ações Sociais</a></li>
-                <li><a href="http://localhost/NevadaSupermercados/wordpress/index.php/quem-somos/trabalhe-conosco">Trabalhe Conosco</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Nossas Lojas</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/acoes-sociais">Ações Sociais</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/trabalhe-conosco">Trabalhe Conosco</a></li>
               </ul>
             </li>
             <li>

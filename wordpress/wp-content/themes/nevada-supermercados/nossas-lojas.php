@@ -81,16 +81,16 @@
   </div>
 
   <?php
-    function query_slider($nPosts) {
+    function querySlider($nPosts) {
       return query_posts("order=DESC&posts_per_page=$nPosts&category_name='Slide Nossas Lojas'");
     }
   ?>
 
-  <?php if (count(query_slider(20)) > 0): ?>
+  <?php if (count(querySlider(20)) > 0): ?>
     <div class="apresentacao-slides">
       <div class="player">
         <div class="imagem-destacada">
-          <?php query_slider(1); ?>
+          <?php querySlider(1); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=735&amp;h=491" alt="" />
             <?php endwhile; else: ?>
@@ -98,14 +98,14 @@
         </div>
 
         <div class="lista-imagem">
-          <?php query_slider(20); ?>
+          <?php querySlider(20); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
               <img src="<?php echo get_template_directory_uri(); ?>/timthumb.php?src=<?php echo get_post_meta($post->ID, $campoSlideNossasLojas[0], true); ?>&amp;w=100&amp;h=080" alt="" />
             <?php endwhile; else: ?>
           <?php endif; ?>
         </div>
 
-        <?php if (count(query_slider(20)) > 1): ?>
+        <?php if (count(querySlider(20)) > 1): ?>
           <div class="controles">
             <div class="voltar">
               <a href="#">&laquo;</a>

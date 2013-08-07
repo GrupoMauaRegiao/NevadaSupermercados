@@ -4,9 +4,9 @@
             <li>
               <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos</a>
               <ul>
-                <li><a href="<?php bloginfo('url'); ?>/index.php/nossas-lojas">Nossos Lojas</a></li>
-                <li><a href="">Ações Socias</a></li>
-                <li><a href="">Trabalhe Conosco</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Nossos Lojas</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/acoes-sociais">Ações Socias</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/trabalhe-conosco">Trabalhe Conosco</a></li>
               </ul>
             </li>
             <li>
