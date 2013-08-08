@@ -281,6 +281,51 @@ Nevada.apps =
         return
     return
 
+  uploadCurriculo: ->
+    campo = document.querySelector '.campo-upload input'
+
+    if campo
+      alerta = document.querySelector '.alertas'
+      p = document.createElement 'p'
+      p.innerHTML = ''
+
+      _exibirAlerta = (mensagem) ->
+        p.innerHTML = mensagem
+        alerta.appendChild p
+        alerta.style.opacity = '1'
+        window.scrollTo 0, 100
+        return
+
+      campo.addEventListener 'change', (evt) ->
+        xhr = new XMLHttpRequest()
+        arquivo = campo.files[0]
+        FILESIZE = (2 * 1024) * 1024
+
+        if xhr.upload
+          xhr.onprogress = (evt) ->
+            if evt.lengthComputable
+              _exibirAlerta 'Carregando o arquivo "' + file.name + '"...'
+            return
+
+          if arquivo.size <= FILESIZE
+            if arquivo.type is 'image/jpeg' \
+               or arquivo.type is 'application/pdf' \
+               or arquivo.type is 'application/msword' \
+               or arquivo.type is "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              xhr.open 'POST', document.querySelector('.formulario form').action, true
+              xhr.setRequestHeader "X_FILENAME", arquivo.name
+              xhr.send arquivo
+              xhr.onreadystatechange = ->
+                if xhr.readyState is 4 and xhr.status is 200
+                  _exibirAlerta 'Arquivo "' + arquivo.name + '" carregado com sucesso!'
+                return
+            else
+              _exibirAlerta 'Formato de arquivo inválido. Envie apenas .docx, .doc, .pdf ou .jpg.'
+          else
+            _exibirAlerta 'Seu arquivo possui ' + ((arquivo.size / 1024) / 1024).toFixed(1) + ' MB e ultrapassa o limite de ' + ((FILESIZE / 1024) / 1024).toFixed(1) + ' MB permitidos.'
+        return
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.carregarScripts()
@@ -292,6 +337,7 @@ do ->
   Apps.animBarraSup()
   Apps.animFilterProprietarios()
   Apps.sliderPagInternas()
+  Apps.uploadCurriculo()
   return
 
 window.onload = ->

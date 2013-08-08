@@ -183,7 +183,7 @@ body
 
   .cabecalho-pagina
     width: 1900px
-    height: 327px
+    height: 326px
     float: left
     margin: 0 auto
     margin-left: -480px
@@ -214,6 +214,9 @@ body
 
   .acoes-sociais
     background: rgb(0, 0, 0) url("../imagens/cabecalho-acoes-sociais.jpg") center no-repeat
+
+  .trabalhe-conosco
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-trabalhe-conosco.jpg") center no-repeat
 
   .textual
     float: left
@@ -640,6 +643,87 @@ body
     // # Controles
   // # Slides
 
+  .formulario-upload
+    width: 1900px
+    margin: 0 0 -95px -480px
+    padding: 0 0 30px 0
+    float: left
+    background: rgb(189, 47, 50)
+    text-align: center
+    text-transform: uppercase
+
+    .cabecalho-formulario-upload
+      margin: 100px 0 30px 0
+
+      h1
+        font: 30px 'ProximaLight', Arial, sans-serif
+        color: rgb(255, 255, 255)
+
+    .formulario
+      .campo-upload
+        width: 320px
+        height: 120px
+        margin: 0 auto
+        margin-bottom: 30px
+        border-radius: 10px
+        border: 2px dashed rgb(240, 72, 75)
+        background: url("../imagens/botao-anexar.png") no-repeat 38px 33px
+        text-align: left
+        line-height: 105px
+        cursor: pointer
+        -webkit-transition: all 0.3s linear
+        -moz-transition: all 0.3s linear
+        -ms-transition: all 0.3s linear
+        -o-transition: all 0.3s linear
+        transition: all 0.3s linear
+
+        input
+          width: 240px
+          height: 50px
+          margin: 0 0 0 42px
+          cursor: pointer
+          opacity: 0
+
+      .campo-upload:hover
+        border-color: rgb(196, 69, 69)
+
+    .icones-opcoes
+      width: 120px
+      margin: 0 auto
+
+      .icone-docx,
+      .icone-pdf
+        width: 50px
+        height: 50px
+        float: left
+        
+      .icone-docx
+        margin: 0 20px 0 0
+        background: url("../imagens/icone-docx.png") no-repeat 0% -5px
+
+      .icone-pdf
+        background: url("../imagens/icone-pdf.png") no-repeat
+
+    .alertas
+      padding: 20px
+      background: none repeat scroll 0% 0% rgb(240, 72, 75)
+      width: 700px
+      margin: 200px auto 0px
+      border-radius: 10px 10px 10px 10px
+      opacity: 0
+      -webkit-transition: all 1s linear
+      -moz-transition: all 1s linear
+      -ms-transition: all 1s linear
+      -o-transition: all 1s linear
+      transition: all 1s linear
+
+      p
+        color: rgb(255, 255, 255)
+        font-size: 14px
+        font-weight: bold
+        text-transform: none
+        text-shadow: 1px 0px 2px rgb(110, 50, 50)
+
   .rodape
     height: 185px
     float: left
@@ -659,8 +743,11 @@ body
             font-size: 17px
             text-decoration: none
             color: rgb(77, 77, 77)
-            transition: all 0.3s linear
             -webkit-transition: all 0.3s linear
+            -moz-transition: all 0.3s linear
+            -ms-transition: all 0.3s linear
+            -o-transition: all 0.3s linear
+            transition: all 0.3s linear
           a:hover
             color: rgb(0, 0, 0)
           ul
