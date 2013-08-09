@@ -315,6 +315,7 @@ Nevada.apps =
               xhr.open 'POST', document.querySelector('.formulario form').action, true
               xhr.setRequestHeader "X_FILENAME", arquivo.name
               xhr.send arquivo
+              
               xhr.onreadystatechange = ->
                 if xhr.readyState is 4 and xhr.status is 200
                   _exibirAlerta 'Arquivo "' + arquivo.name + '" carregado com sucesso!'
@@ -322,7 +323,10 @@ Nevada.apps =
             else
               _exibirAlerta 'Formato de arquivo inválido. Envie apenas .docx, .doc, .pdf ou .jpg.'
           else
-            _exibirAlerta 'Seu arquivo possui ' + ((arquivo.size / 1024) / 1024).toFixed(1) + ' MB e ultrapassa o limite de ' + ((FILESIZE / 1024) / 1024).toFixed(1) + ' MB permitidos.'
+            _exibirAlerta 'Seu arquivo possui ' +
+                          ((arquivo.size / 1024) / 1024).toFixed(1) +
+                          ' MB e ultrapassa o limite de ' + ((FILESIZE / 1024) / 1024).toFixed(1) +
+                          ' MB permitidos.'
         return
     return
 
