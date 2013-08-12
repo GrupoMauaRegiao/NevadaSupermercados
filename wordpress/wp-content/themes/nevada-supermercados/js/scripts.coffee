@@ -285,9 +285,16 @@ Nevada.apps =
     campo = document.querySelector '.campo-upload input'
 
     if campo
+      cabecalho = document.querySelector '.cabecalho-formulario-upload h1'
+      formulario = document.querySelector '.formulario'
       alerta = document.querySelector '.alertas'
       p = document.createElement 'p'
       p.innerHTML = ''
+
+      _esconderItens = ->
+        cabecalho.innerHTML = 'Currículo enviado!'
+        formulario.style.display = 'none'
+        return
 
       _exibirAlerta = (mensagem) ->
         p.innerHTML = mensagem
@@ -302,22 +309,21 @@ Nevada.apps =
         FILESIZE = (2 * 1024) * 1024
 
         if xhr.upload
-          xhr.onprogress = (evt) ->
-            if evt.lengthComputable
-              _exibirAlerta 'Carregando o arquivo "' + file.name + '"...'
-            return
-
           if arquivo.size <= FILESIZE
             if arquivo.type is 'image/jpeg' \
                or arquivo.type is 'application/pdf' \
                or arquivo.type is 'application/msword' \
                or arquivo.type is "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+              xhr.onprogress = (evt) ->
+                if evt.lengthComputable
+                  _exibirAlerta 'Carregando o arquivo "' + file.name + '"...'
+                return
               xhr.open 'POST', document.querySelector('.formulario form').action, true
               xhr.setRequestHeader "X_FILENAME", arquivo.name
               xhr.send arquivo
-              
               xhr.onreadystatechange = ->
                 if xhr.readyState is 4 and xhr.status is 200
+                  _esconderItens()
                   _exibirAlerta 'Arquivo "' + arquivo.name + '" carregado com sucesso!'
                 return
             else
