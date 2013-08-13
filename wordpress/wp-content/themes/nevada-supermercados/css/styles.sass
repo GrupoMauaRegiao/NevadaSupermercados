@@ -14,6 +14,22 @@
   font-weight: normal
   src: url("../fonts/ProximaNova-Light.otf")
 
+/* Animação alertas de upload */
+@-webkit-keyframes alertas-upload
+  0%
+    opacity: 0
+  50%
+    opacity: 1
+  100%
+    opacity: 0
+
+@keyframes alertas-upload
+  0%
+    opacity: 0
+  50%
+    opacity: 1
+  100%
+    opacity: 0
 
 /* Animação cartão */
 @keyframes girarCartao
@@ -723,6 +739,11 @@ body
         font-weight: bold
         text-transform: none
         text-shadow: 1px 0px 2px rgb(110, 50, 50)
+
+    .on
+      animation: alertas-upload 1s infinite linear
+      -webkit-animation: alertas-upload 1s infinite linear
+
 
   .rodape
     height: 185px

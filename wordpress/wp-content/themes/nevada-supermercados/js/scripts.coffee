@@ -286,21 +286,39 @@ Nevada.apps =
 
     if campo
       cabecalho = document.querySelector '.cabecalho-formulario-upload h1'
-      formulario = document.querySelector '.formulario'
+      containerForm = document.querySelector '.formulario'
+      formulario = containerForm.children[0]
+      formatos = [
+        'image/jpeg',
+        'application/pdf',
+        'application/msword',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      ]
       alerta = document.querySelector '.alertas'
       p = document.createElement 'p'
       p.innerHTML = ''
 
-      _esconderItens = ->
-        cabecalho.innerHTML = 'Currículo enviado!'
-        formulario.style.display = 'none'
+      _ativarAnimacao = ->
+        alerta.setAttribute 'class', 'alertas on'
+        return
+
+      _desativarAnimacao = ->
+        alerta.setAttribute 'class', 'alertas'
+        return
+
+      _mudarCursor = (cursor) ->
+        document.body.style.cursor = cursor
+        return
+
+      _exibirMensagem = (mensagem) ->
+        cabecalho.innerHTML = mensagem
+        containerForm.style.display = 'none'
         return
 
       _exibirAlerta = (mensagem) ->
         p.innerHTML = mensagem
         alerta.appendChild p
         alerta.style.opacity = '1'
-        window.scrollTo 0, 100
         return
 
       campo.addEventListener 'change', (evt) ->
@@ -310,20 +328,23 @@ Nevada.apps =
 
         if xhr.upload
           if arquivo.size <= FILESIZE
-            if arquivo.type is 'image/jpeg' \
-               or arquivo.type is 'application/pdf' \
-               or arquivo.type is 'application/msword' \
-               or arquivo.type is "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              xhr.onprogress = (evt) ->
+            if arquivo.type is formatos[0] or arquivo.type is formatos[1] \
+               or arquivo.type is formatos[2] or arquivo.type is formatos[3]
+              xhr.upload.onprogress = (evt) ->
                 if evt.lengthComputable
-                  _exibirAlerta 'Carregando o arquivo "' + file.name + '"...'
+                  _mudarCursor 'wait'
+                  _exibirMensagem 'Enviando...'
+                  _ativarAnimacao()
+                  _exibirAlerta 'Carregando o arquivo "' + arquivo.name + '"...'
                 return
-              xhr.open 'POST', document.querySelector('.formulario form').action, true
-              xhr.setRequestHeader "X_FILENAME", arquivo.name
+              xhr.open formulario.method, formulario.action, true
+              xhr.setRequestHeader "AJAXUPLOAD", arquivo.name
               xhr.send arquivo
               xhr.onreadystatechange = ->
                 if xhr.readyState is 4 and xhr.status is 200
-                  _esconderItens()
+                  _mudarCursor 'auto'
+                  _exibirMensagem 'Currículo enviado!'
+                  _desativarAnimacao()
                   _exibirAlerta 'Arquivo "' + arquivo.name + '" carregado com sucesso!'
                 return
             else

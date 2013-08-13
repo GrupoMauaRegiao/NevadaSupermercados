@@ -14,6 +14,7 @@
     <form action="<?php bloginfo('template_url'); ?>/upload-curriculo.php" method="post" enctype="multipart/form-data">
       <div class="campo-upload">
         <input type="file" name="selecionar-curriculo" />
+        <br />
       </div>
     </form>
   </div>
