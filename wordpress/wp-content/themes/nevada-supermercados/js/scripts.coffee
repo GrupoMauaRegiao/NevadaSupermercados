@@ -328,8 +328,10 @@ Nevada.apps =
 
         if xhr.upload
           if arquivo.size <= FILESIZE
-            if arquivo.type is formatos[0] or arquivo.type is formatos[1] \
-               or arquivo.type is formatos[2] or arquivo.type is formatos[3]
+            if arquivo.type is formatos[0] \
+               or arquivo.type is formatos[1] \
+               or arquivo.type is formatos[2] \
+               or arquivo.type is formatos[3]
               xhr.upload.onprogress = (evt) ->
                 if evt.lengthComputable
                   _mudarCursor 'wait'
