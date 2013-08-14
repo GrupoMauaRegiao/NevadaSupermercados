@@ -11,6 +11,8 @@
   # Produtos e Serviços
   } elseif (is_page("entrega-em-domicilio")) {
     include "entrega-em-domicilio.php";
+  } elseif (is_page("cartao-da-loja")) {
+    include "cartao-da-loja.php";
   }
 
   get_footer();
