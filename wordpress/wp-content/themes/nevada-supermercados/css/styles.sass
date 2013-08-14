@@ -234,6 +234,9 @@ body
   .trabalhe-conosco
     background: rgb(0, 0, 0) url("../imagens/cabecalho-trabalhe-conosco.jpg") center no-repeat
 
+  .entrega-em-domicilio
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-acoes-sociais.jpg") center no-repeat
+
   .textual
     float: left
     box-shadow: 0 -250px 50px rgb(240, 240, 240)
@@ -279,9 +282,37 @@ body
         i, em
           font-style: italic
 
-    .imagem
+    .imagem,
+    .imagem-entrega-em-domicilio
       text-align: center
+
+    .imagem
       margin: 70px 0 40px 0
+
+    .imagem-entrega-em-domicilio
+      margin: 30px 0 30px 0
+
+    .lista-entrega-em-domicilio
+      width: 740px
+      margin: 0 auto
+
+      ul
+        li
+          background: url("../imagens/marcador-entrega-em-domicilio.jpg") no-repeat 0 5px
+          line-height: 32px
+          font-size: 22px
+          text-transform: uppercase
+          color: rgb(128, 128, 128)
+          padding: 0 0 0 30px
+
+        li:nth-child(2)
+          margin: 0 0 0 15px
+
+        li:nth-child(3)
+          margin: 0 0 0 30px
+
+          span
+            margin-top: -20px
 
       .proprietarios
         img

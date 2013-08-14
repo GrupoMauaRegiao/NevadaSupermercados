@@ -10,11 +10,11 @@
               </ul>
             </li>
             <li>
-              <a href="#">Produtos e Serviços</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos">Produtos e Serviços</a>
               <ul>
-                <li><a href="#">Entrega em domicílio</a></li>
-                <li><a href="#">Cartão da Loja</a></li>
-                <li><a href="#">Serviços, Cursos e Paletras</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Entrega em domicílio</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/cartao-da-loja">Cartão da Loja</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/servicos-cursos-e-palestras">Serviços, Cursos e Palestras</a></li>
               </ul>
             </li>
             <li>
