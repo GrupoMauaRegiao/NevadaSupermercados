@@ -7,7 +7,9 @@
 
 <div class="textual">
   <div class="texto">
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, laudantium, consequuntur quae libero nihil eligendi deserunt ipsam ratione placeat quam cupiditate error ducimus inventore. Cum doloremque ex beatae dicta praesentium?</p>
+    <p>Fazemos entrega em domicílio! Podendo deixá-lo com uma maior comodidade,
+    sem preocupação com suas compras, a Rede Nevada sempre buscando um melhor
+    atendimento à você, trabalha com 3 empresas do setor:</p>
   </div>
 
   <div class="imagem-entrega-em-domicilio">
