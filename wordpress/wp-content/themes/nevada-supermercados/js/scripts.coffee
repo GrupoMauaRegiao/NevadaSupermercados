@@ -384,6 +384,8 @@ do ->
   Apps.sliderPagInternas '.evento-vacinacao'
   Apps.sliderPagInternas '.evento-gincana-solidaria'
   Apps.sliderPagInternas '.evento-exame-vista'
+  Apps.sliderPagInternas '.apresentacao-cursos-palestras'
+  Apps.sliderPagInternas '.apresentacao-lojas'
   Apps.uploadCurriculo()
   return
 

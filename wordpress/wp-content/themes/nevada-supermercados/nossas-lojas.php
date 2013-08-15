@@ -87,7 +87,7 @@
   ?>
 
   <?php if (count(querySlider(20)) > 0): ?>
-    <div class="apresentacao-slides">
+    <div class="apresentacao-lojas apresentacao-slides">
       <div class="player">
         <div class="imagem-destacada">
           <?php querySlider(1); ?>

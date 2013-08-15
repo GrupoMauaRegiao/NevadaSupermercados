@@ -52,7 +52,7 @@
   </div>
 
   <?php if ($cursosPalestras > 0): ?>
-    <div class="apresentacao-slides">
+    <div class="apresentacao-cursos-palestras apresentacao-slides">
       <div class="player">
         <div class="imagem-destacada">
           <?php queryCursosPalestras(1); ?>
