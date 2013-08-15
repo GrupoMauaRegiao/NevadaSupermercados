@@ -52,7 +52,7 @@
     </div>
 
     <?php if ($agita > 0): ?>
-      <div class="apresentacao-slides">
+      <div class="evento-agita apresentacao-slides">
         <div class="player">
           <div class="imagem-destacada">
             <?php queryAgita(1); ?>
@@ -95,7 +95,7 @@
     </div>
 
     <?php if ($doacaoSangue > 0): ?>
-      <div class="apresentacao-slides">
+      <div class="evento-doacao-sangue apresentacao-slides">
         <div class="player">
           <div class="imagem-destacada">
             <?php queryDoacaoSangue(1); ?>
@@ -137,7 +137,7 @@
     </div>
 
     <?php if ($vacinacao > 0): ?>
-      <div class="apresentacao-slides">
+      <div class="evento-vacinacao apresentacao-slides">
         <div class="player">
           <div class="imagem-destacada">
             <?php queryVacinacao(1); ?>
@@ -179,7 +179,7 @@
     </div>
 
     <?php if ($gincanaSolidaria > 0): ?>
-      <div class="apresentacao-slides">
+      <div class="evento-gincana-solidaria apresentacao-slides">
         <div class="player">
           <div class="imagem-destacada">
             <?php queryGincanaSolidaria(1); ?>
@@ -221,7 +221,7 @@
     </div>
 
     <?php if ($exameVista > 0): ?>
-      <div class="apresentacao-slides">
+      <div class="evento-exame-vista apresentacao-slides">
         <div class="player">
           <div class="imagem-destacada">
             <?php queryExameVista(1); ?>

@@ -148,13 +148,13 @@ Nevada.apps =
       iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
     return
 
-  sliderPagInternas: ->
-    imgs = document.querySelectorAll '.lista-imagem img'
+  sliderPagInternas: (classeContainer) ->
+    imgs = document.querySelectorAll classeContainer + ' .lista-imagem img'
 
     if imgs[0]
-      imgDestacada = document.querySelector '.imagem-destacada img'
-      botaoVoltar = document.querySelector '.voltar'
-      botaoAvancar = document.querySelector '.avancar'
+      imgDestacada = document.querySelector classeContainer + ' .imagem-destacada img'
+      botaoVoltar = document.querySelector classeContainer + ' .voltar'
+      botaoAvancar = document.querySelector classeContainer + ' .avancar'
       WIDTH = 735
       HEIGHT = 491
       nSlide = 0
@@ -379,7 +379,11 @@ do ->
   Apps.configIdYouTube()
   Apps.animBarraSup()
   Apps.animFilterProprietarios()
-  Apps.sliderPagInternas()
+  Apps.sliderPagInternas '.evento-agita'
+  Apps.sliderPagInternas '.evento-doacao-sangue'
+  Apps.sliderPagInternas '.evento-vacinacao'
+  Apps.sliderPagInternas '.evento-gincana-solidaria'
+  Apps.sliderPagInternas '.evento-exame-vista'
   Apps.uploadCurriculo()
   return
 
