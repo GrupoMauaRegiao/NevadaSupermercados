@@ -13,6 +13,8 @@
     include "entrega-em-domicilio.php";
   } elseif (is_page("cartao-da-loja")) {
     include "cartao-da-loja.php";
+  } elseif (is_page("servicos-cursos-e-palestras")) {
+    include "servicos-cursos-e-palestras.php";
   }
 
   get_footer();
