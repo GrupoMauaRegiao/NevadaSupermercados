@@ -359,10 +359,20 @@ Nevada.apps =
         return
     return
 
+  ajustarBackground: ->
+    cabecalho = document.querySelectorAll '.cabecalho-textual'
+
+    if cabecalho
+      for item in cabecalho
+        w = item.textContent.length * 20
+        item.style.width = w + 'px'
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
+  Apps.ajustarBackground()
   Apps.slider()
   Apps.controlarTamanhoString '.nome-produto p', 25
   Apps.configIdIssuu()

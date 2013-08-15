@@ -33,6 +33,10 @@
     <img src="<?php bloginfo('template_url'); ?>/imagens/banco-24h.jpg" alt="" />
   </div>
 
+  <div class="sombra-servicos">
+    
+  </div>
+
   <div class="cabecalho-textual">
     <h2>Cursos e Palestras</h2>
   </div>
