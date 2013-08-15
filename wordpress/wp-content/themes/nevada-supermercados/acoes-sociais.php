@@ -6,27 +6,27 @@
   function queryAgita($nPosts) {
     return query_posts("order=DESC&posts_per_page=$nPosts&category_name='agita'");
   }
-  $agita = count(queryAgita(1));
+  $agita = count(queryAgita(20));
 
   function queryDoacaoSangue($nPosts) {
     return query_posts("order=DESC&posts_per_page=$nPosts&category_name='campanha-de-doacao-de-sangue'");
   }
-  $doacaoSangue = count(queryDoacaoSangue(1));
+  $doacaoSangue = count(queryDoacaoSangue(20));
 
   function queryVacinacao($nPosts) {
     return query_posts("order=DESC&posts_per_page=$nPosts&category_name='campanha-de-vacinacao'");
   }
-  $vacinacao = count(queryVacinacao(1));
+  $vacinacao = count(queryVacinacao(20));
 
   function queryGincanaSolidaria($nPosts) {
     return query_posts("order=DESC&posts_per_page=$nPosts&category_name='gincana-solidaria'");
   }
-  $gincanaSolidaria = count(queryGincanaSolidaria(1));
+  $gincanaSolidaria = count(queryGincanaSolidaria(20));
 
   function queryExameVista($nPosts) {
     return query_posts("order=DESC&posts_per_page=$nPosts&category_name='exame-de-vista'");
   }
-  $exameVista = count(queryExameVista(1));
+  $exameVista = count(queryExameVista(20));
 ?>
 
 <div class="cabecalho-pagina <?php echo $post->post_name; ?>">
