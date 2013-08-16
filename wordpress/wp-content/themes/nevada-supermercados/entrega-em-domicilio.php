@@ -16,6 +16,8 @@
     <img src="<?php bloginfo('template_url'); ?>/imagens/casal-entrega-em-domicilio.jpg" alt="" />
   </div>
 
+  <div class="sombra-imagem"></div>
+
   <div class="lista-entrega-em-domicilio">
     <ul>
       <li><span>JWD Entregas (Lojas 2, 3 e 4)</span></li>
