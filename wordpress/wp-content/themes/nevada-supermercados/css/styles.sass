@@ -410,9 +410,13 @@ body
             border: 1px solid rgb(255, 255, 255)
             box-shadow: 0 0 1px rgb(100, 100, 100)
             border-radius: 2px
-
             position: absolute
             float: left
+            -webkit-transition: all 0.1s linear
+            -moz-transition: all 0.1s linear
+            -ms-transition: all 0.1s linear
+            -o-transition: all 0.1s linear
+            transition: all 0.1s linear
 
           .voltar:hover,
           .avancar:hover
@@ -433,6 +437,13 @@ body
             text-decoration: none
             color: rgb(100, 100, 100)
             outline: none
+
+        .voltar:active,
+        .avancar:active
+          background: rgb(180, 180, 180) !important
+
+          a
+            color: rgb(255, 255, 255) !important
 
     .apresentacao-cursos-palestras
       margin: 55px 0 0 0 !important
