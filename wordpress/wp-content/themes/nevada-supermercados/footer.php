@@ -2,7 +2,7 @@
         <div class="menu">
           <ul>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos</a>
+              <a href="#">Quem somos</a>
               <ul>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Nossos Lojas</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/acoes-sociais">Ações Socias</a></li>
@@ -10,7 +10,7 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos">Produtos e Serviços</a>
+              <a href="#">Produtos e Serviços</a>
               <ul>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Entrega em domicílio</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/cartao-da-loja">Cartão da Loja</a></li>
