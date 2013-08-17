@@ -148,13 +148,13 @@ Nevada.apps =
       iframe.setAttribute 'src', 'http://www.youtube.com/embed/' + id
     return
 
-  sliderPagInternas: (classeContainer) ->
-    imgs = document.querySelectorAll classeContainer + ' .lista-imagem img'
+  sliderPagInternas: (container) ->
+    imgs = document.querySelectorAll container + ' .lista-imagem img'
 
     if imgs[0]
-      imgDestacada = document.querySelector classeContainer + ' .imagem-destacada img'
-      botaoVoltar = document.querySelector classeContainer + ' .voltar'
-      botaoAvancar = document.querySelector classeContainer + ' .avancar'
+      imgDestacada = document.querySelector container + ' .imagem-destacada img'
+      botaoVoltar = document.querySelector container + ' .voltar'
+      botaoAvancar = document.querySelector container + ' .avancar'
       WIDTH = 735
       HEIGHT = 491
       nSlide = 0
@@ -227,7 +227,9 @@ Nevada.apps =
 
       _exibir = (img) ->
         srcAtivo = img.getAttribute 'src'
-        src = srcAtivo.substr(0, srcAtivo.length - 11) + 'w=' + WIDTH + '&' + 'h=' + HEIGHT
+        src = srcAtivo.substr(0, srcAtivo.length - 11) +
+              'w=' + WIDTH + '&' +
+              'h=' + HEIGHT
         imgDestacada.setAttribute 'src', src
         _desativarSlides()
         _ativarSlideMiniatura img
@@ -289,10 +291,10 @@ Nevada.apps =
       containerForm = document.querySelector '.formulario'
       formulario = containerForm.children[0]
       formatos = [
-        'image/jpeg',
-        'application/pdf',
-        'application/msword',
-        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+       'image/jpeg',
+       'application/pdf',
+       'application/msword',
+       'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
       ]
       alerta = document.querySelector '.alertas'
       p = document.createElement 'p'
@@ -347,14 +349,18 @@ Nevada.apps =
                   _mudarCursor 'auto'
                   _exibirMensagem 'Currículo enviado!'
                   _desativarAnimacao()
-                  _exibirAlerta 'Arquivo "' + arquivo.name + '" carregado com sucesso!'
+                  _exibirAlerta 'Arquivo "' +
+                                arquivo.name +
+                                '" carregado com sucesso!'
                 return
             else
-              _exibirAlerta 'Formato de arquivo inválido. Envie apenas .docx, .doc, .pdf ou .jpg.'
+              _exibirAlerta 'Formato de arquivo inválido. ' +
+                            'Envie apenas .docx, .doc, .pdf ou .jpg.'
           else
             _exibirAlerta 'Seu arquivo possui ' +
                           ((arquivo.size / 1024) / 1024).toFixed(1) +
-                          ' MB e ultrapassa o limite de ' + ((FILESIZE / 1024) / 1024).toFixed(1) +
+                          ' MB e ultrapassa o limite de ' +
+                          ((FILESIZE / 1024) / 1024).toFixed(1) +
                           ' MB permitidos.'
         return
     return
