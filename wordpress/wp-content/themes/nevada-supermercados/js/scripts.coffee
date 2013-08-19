@@ -192,7 +192,6 @@ Nevada.apps =
         return
 
       _voltar = (evt) ->
-        evt.preventDefault()
         if nSlide > 0
           nSlide -= 1
           if nSlide % paginasVisiveis is 4
@@ -203,10 +202,10 @@ Nevada.apps =
           _desativarSlides()
           _exibir imgs[nSlide]
           _ativarSlideMiniatura imgs[nSlide]
+        evt.preventDefault()
         return
 
       _avancar = (evt) ->
-        evt.preventDefault()
         if nSlide < imgs.length - 1
           nSlide += 1
           if nSlide % paginasVisiveis is 0
@@ -217,6 +216,7 @@ Nevada.apps =
           _desativarSlides()
           _exibir imgs[nSlide]
           _ativarSlideMiniatura imgs[nSlide]
+        evt.preventDefault()
         return
 
       _esconderSlides = ->
@@ -320,7 +320,7 @@ Nevada.apps =
       _exibirAlerta = (mensagem) ->
         p.innerHTML = mensagem
         alerta.appendChild p
-        alerta.style.opacity = '1'
+        alerta.style.opacity = 1
         return
 
       campo.addEventListener 'change', (evt) ->
@@ -374,8 +374,32 @@ Nevada.apps =
         item.style.width = w + 'px'
     return
 
+  transicaoPaginas: ->
+    pagina = document.body
+    links = document.querySelectorAll '.menu a'
+
+    _animacao = (evt) ->
+      _this = this
+      pagina.style.opacity = 0
+      interval = setInterval ->
+        window.location = _this.href
+        return
+      , 1000
+      evt.preventDefault()
+      return
+
+    for item in links
+      item.addEventListener 'click', _animacao
+    return
+
+  exibirPagina: ->
+    pagina = document.body
+    pagina.style.opacity = 1
+    return
+
 Apps = Nevada.apps
 do ->
+  Apps.transicaoPaginas()
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
   Apps.ajustarBackground()
@@ -397,4 +421,5 @@ do ->
 
 window.onload = ->
   Apps.ajustarWidthSubmenu()
+  Apps.exibirPagina()
   return
