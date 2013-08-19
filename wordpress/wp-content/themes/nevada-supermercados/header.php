@@ -34,7 +34,7 @@
               <a href="<?php bloginfo('url'); ?>/index.php">Home</a>
             </li>
             <li>
-              <a href="#">Quem somos <span>&#8250;</span></a>
+              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos <span>&#8250;</span></a>
               <ul class="submenu">
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Nossas Lojas</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/acoes-sociais">Ações Sociais</a></li>
@@ -42,7 +42,7 @@
               </ul>
             </li>
             <li>
-              <a href="#">Produtos e Serviços <span>&#8250;</span></a>
+              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos">Produtos e Serviços <span>&#8250;</span></a>
               <ul class="submenu">
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Entrega em domicílio</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/cartao-da-loja">Cartão da Loja</a></li>
@@ -50,20 +50,20 @@
               </ul>
             </li>
             <li>
-              <a href="#">Ofertas <span>&#8250;</span></a>
+              <a href="<?php bloginfo('url'); ?>/index.php/ofertas">Ofertas <span>&#8250;</span></a>
               <ul class="submenu">
-                <li><a href="#">Promoções</a></li>
-                <li><a href="#">Jornal de ofertas</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/ofertas/promocoes">Promoções</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/ofertas/jornal-de-ofertas">Jornal de ofertas</a></li>
               </ul>
             </li>
             <li>
               <a href="<?php bloginfo('url'); ?>/index.php/colaboradores">Colaboradores</a>
             </li>
             <li>
-              <a href="#">Localização</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/localizacao">Localização</a>
             </li>
             <li>
-              <a href="#">Contato</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/contato">Contato</a>
             </li>
           </ul>
         </div>
