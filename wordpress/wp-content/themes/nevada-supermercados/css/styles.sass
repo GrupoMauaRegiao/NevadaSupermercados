@@ -247,11 +247,6 @@ body
   .trabalhe-conosco
     background: rgb(0, 0, 0) url("../imagens/cabecalho-trabalhe-conosco.jpg") center no-repeat
 
-  .nossas-lojas,
-  .acoes-sociais,
-  .trabalhe-conosco
-    box-shadow: 1900px 0 0 rgb(0, 0, 0), -1900px 0 0 rgb(0, 0, 0)
-
   // Produtos e Serviços
   .entrega-em-domicilio
     background: rgb(0, 0, 0) url("../imagens/cabecalho-acoes-sociais.jpg") center no-repeat
@@ -262,9 +257,17 @@ body
   .servicos-cursos-e-palestras
     background: rgb(0, 0, 0) url("../imagens/cabecalho-servicos-cursos-e-palestras.jpg") center no-repeat
 
+  // Ofertas
+  .jornal-de-ofertas
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-servicos-cursos-e-palestras.jpg") center no-repeat
+
+  .nossas-lojas,
+  .acoes-sociais,
+  .trabalhe-conosco,
   .entrega-em-domicilio,
   .cartao-da-loja,
-  .servicos-cursos-e-palestras
+  .servicos-cursos-e-palestras,
+  .jornal-de-ofertas
     box-shadow: 1900px 0 0 rgb(0, 0, 0), -1900px 0 0 rgb(0, 0, 0)
 
   .textual
@@ -273,6 +276,19 @@ body
     z-index: -1
     position: relative
     padding: 50px
+
+    .jornal
+      width: 860px
+      height: 400px
+
+      .issuuembed
+        width: 740px
+        height: 400px
+        margin: 0 auto
+
+        object
+          border-radius: 5px
+          outline: 0
 
     .evento-social
       margin: 0 0 50px 0
@@ -554,7 +570,10 @@ body
       .issuuembed
         width: 600px
         height: 300px
-        background: linear-gradient(0deg, rgb(255, 220, 220), rgb(255, 255, 255))
+        background: linear-gradient(0deg, rgb(255, 220, 220), rgb(255, 255, 255)) !important
+
+        object
+          outline: 0
 
       .rodape-jornal
         width: 600px

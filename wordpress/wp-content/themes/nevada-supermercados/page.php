@@ -15,6 +15,9 @@
     include "cartao-da-loja.php";
   } elseif (is_page("servicos-cursos-e-palestras")) {
     include "servicos-cursos-e-palestras.php";
+  # Ofertas
+  } elseif (is_page("jornal-de-ofertas")) {
+    include "jornal-de-ofertas.php";
   }
 
   get_footer();
