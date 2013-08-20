@@ -397,6 +397,11 @@ Nevada.apps =
     pagina.style.opacity = 1
     return
 
+  removerLoading: ->
+    pagina = document.body
+    pagina.setAttribute 'class', ''
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.transicaoPaginas()
@@ -421,5 +426,6 @@ do ->
 
 window.onload = ->
   Apps.ajustarWidthSubmenu()
+  Apps.removerLoading()
   Apps.exibirPagina()
   return
