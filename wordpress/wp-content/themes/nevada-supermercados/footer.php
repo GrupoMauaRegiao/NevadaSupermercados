@@ -15,6 +15,7 @@
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Entrega em domicílio</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/cartao-da-loja">Cartão da Loja</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/servicos-cursos-e-palestras">Serviços, Cursos e Palestras</a></li>
+                <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/formas-de-pagamento">Formas de Pagamento</a></li>
               </ul>
             </li>
             <li>
