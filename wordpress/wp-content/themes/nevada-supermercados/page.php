@@ -18,6 +18,8 @@
   # Ofertas
   } elseif (is_page("jornal-de-ofertas")) {
     include "jornal-de-ofertas.php";
+  } elseif (is_page("promocoes")) {
+    include "promocoes.php";
   }
 
   get_footer();

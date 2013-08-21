@@ -249,7 +249,7 @@ body
 
   // Produtos e Serviços
   .entrega-em-domicilio
-    background: rgb(0, 0, 0) url("../imagens/cabecalho-acoes-sociais.jpg") center no-repeat
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-entrega-em-domicilio.jpg") center no-repeat
 
   .cartao-da-loja
     background: rgb(0, 0, 0) url("../imagens/cabecalho-cartao-da-loja.jpg") center no-repeat
@@ -259,7 +259,10 @@ body
 
   // Ofertas
   .jornal-de-ofertas
-    background: rgb(0, 0, 0) url("../imagens/cabecalho-servicos-cursos-e-palestras.jpg") center no-repeat
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-promocoes.jpg") center no-repeat
+
+  .promocoes
+    background: rgb(0, 0, 0) url("../imagens/cabecalho-promocoes.jpg") center no-repeat
 
   .nossas-lojas,
   .acoes-sociais,
@@ -267,7 +270,8 @@ body
   .entrega-em-domicilio,
   .cartao-da-loja,
   .servicos-cursos-e-palestras,
-  .jornal-de-ofertas
+  .jornal-de-ofertas,
+  .promocoes
     box-shadow: 1900px 0 0 rgb(0, 0, 0), -1900px 0 0 rgb(0, 0, 0)
 
   .textual
@@ -927,6 +931,105 @@ body
 
         b
           font-weight: bold
+
+  .display-promocoes
+    width: 1900px
+    height: 145px
+    margin: 0 0 130px -480px
+    padding: 0 0 30px 0
+    float: left
+    background: url("../imagens/bg-display-cartao-da-loja.png") repeat-x
+    text-transform: uppercase
+
+    .container-display
+      width: 960px
+      height: 150px
+      margin: 0 auto
+      background: url("../imagens/sombra-cartao-da-loja.png") no-repeat 0 58px
+
+      .cabecalho-promocoes
+        width: 195px
+        margin: 80px 0 25px 60px
+
+        h3
+          text-transform: uppercase
+          font-size: 35px
+          color: rgb(84, 112, 158)
+
+      .estrelas
+        width: 260px
+        height: 70px
+        margin: -120px 0 0 290px
+
+  .todas-ofertas
+    width: 960px
+    float: left
+    margin: -105px 0 0 0
+    text-transform: uppercase
+
+    .oferta
+      width: 195px
+      height: 285px
+      float: left
+      margin: 0 25px 25px 0
+      border-radius: 10px
+      padding: 10px
+      cursor: pointer
+      box-shadow: 1px 5px 5px rgb(230, 230, 230)
+      -webkit-transition: all 0.15s linear
+      -moz-transition: all 0.15s linear
+      -ms-transition: all 0.15s linear
+      -o-transition: all 0.15s linear
+      transition: all 0.15s linear
+
+      .imagem-produto
+        width: 195px
+        height: 145px
+        -webkit-transition: all 0.2s linear
+        -moz-transition: all 0.2s linear
+        -ms-transition: all 0.2s linear
+        -o-transition: all 0.2s linear
+        transition: all 0.2s linear
+
+        img
+          width: 195px
+          height: 145px
+          border-radius: 10px
+
+      .informacao
+        .nome-produto
+          height: 65px
+          padding: 5px
+          overflow: hidden
+
+          p
+            -ms-word-wrap: break-word
+            word-wrap: break-word
+            font: 24px ProximaLight, Arial, sans-serif
+            color: rgb(80, 80, 80)
+
+        .preco
+          margin: 20px 0 0 0
+
+          p
+            font: bold 35px ProximaLight, Arial, sans-serif
+            color: rgb(207, 0, 0)
+            text-align: center
+
+            span
+              font-size: 20px
+
+    .oferta:hover
+      -webkit-transform: scale(1.05)
+      -moz-transform: scale(1.05)
+      -ms-transform: scale(1.05)
+      -o-transform: scale(1.05)
+      transform: scale(1.05)
+      box-shadow: 5px 10px 10px rgb(230, 230, 230)
+      background: rgb(255, 210, 0)
+
+      .imagem-produto
+        opacity: 0.2
 
   .rodape
     height: 185px
