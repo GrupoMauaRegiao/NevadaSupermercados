@@ -14,9 +14,9 @@
     <title><?php bloginfo('name'); ?> <?php if (!is_home()): ?> &#8212; <?php echo ucwords(get_the_title()); ?><?php endif; ?></title>
   </head>
   <body class="precarregar">
-      <?php if (!is_home()): ?>
-        <div class="barra-superior"></div>
-      <?php endif ?>
+
+    <div class="barra-superior"></div>
+
     <div class="layout960px">
 
       <div class="cabecalho">

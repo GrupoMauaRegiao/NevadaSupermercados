@@ -39,7 +39,6 @@
   </div>
   <div class="lista-documentos">
     <p>Vá até uma de nossas lojas com os seguintes documentos:<br />
-    <b>RG</b> | CPF | <b>Comprovante de renda</b> | Comprovante de residência atual
-    </p>
+    <b>RG</b> | CPF | <b>Comprovante de renda</b> | Comprovante de residência atual</p>
   </div>
 </div>
