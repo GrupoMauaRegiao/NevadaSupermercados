@@ -266,7 +266,7 @@ body
 
   .promocoes
     background: rgb(0, 0, 0) url("../imagens/cabecalho-promocoes.jpg") center no-repeat
-  
+
   // Localização
   .localizacao
     background: rgb(0, 0, 0) url("../imagens/cabecalho-localizacao.jpg") center no-repeat
@@ -344,6 +344,32 @@ body
         i,
         em
           font-style: italic
+
+      .endereco
+        margin: 0 0 50px 0
+        span
+          p
+            font-size: 20px
+            text-transform: uppercase
+            text-align: left
+            margin: 0 0 20px 40px
+
+            .grande
+              font-size: 25px
+              line-height: 35px
+
+            .pequeno
+              font-size: 15px
+
+        .mapa
+          iframe
+            width: 700px
+            height: 300px
+            border: 0
+            margin: 0
+
+    .endereco:nth-child(5)
+      margin-bottom: 0
 
     .cartao-pequeno
       background: url("../imagens/sombra-servicos.png") no-repeat 45px 45px
