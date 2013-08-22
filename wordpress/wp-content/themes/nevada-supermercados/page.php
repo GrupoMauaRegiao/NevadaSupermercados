@@ -22,9 +22,9 @@
     include "jornal-de-ofertas.php";
   } elseif (is_page("promocoes")) {
     include "promocoes.php";
-    # Colaboradores
-  } elseif (is_page('colaboradores')) {
-    include "colaboradores.php";
+    # Localização
+  } elseif (is_page('localizacao')) {
+    include "localizacao.php";
   }
 
   get_footer();

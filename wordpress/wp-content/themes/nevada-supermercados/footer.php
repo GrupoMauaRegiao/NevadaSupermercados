@@ -26,7 +26,7 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/colaboradores">Colaboradores</a>
+              <a href="#">Siga-nos</a>
             </li>
           </ul>
         </div>

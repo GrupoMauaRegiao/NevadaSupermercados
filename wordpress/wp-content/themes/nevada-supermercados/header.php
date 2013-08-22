@@ -58,9 +58,6 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/colaboradores">Colaboradores</a>
-            </li>
-            <li>
               <a href="<?php bloginfo('url'); ?>/index.php/localizacao">Localização</a>
             </li>
             <li>
