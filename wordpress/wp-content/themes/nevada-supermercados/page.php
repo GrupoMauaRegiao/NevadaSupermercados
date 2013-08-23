@@ -23,8 +23,11 @@
   } elseif (is_page("promocoes")) {
     include "promocoes.php";
     # Localização
-  } elseif (is_page('localizacao')) {
+  } elseif (is_page("localizacao")) {
     include "localizacao.php";
+    # Contato
+  } elseif (is_page("contato")) {
+    include "contato.php";
   }
 
   get_footer();

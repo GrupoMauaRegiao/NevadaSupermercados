@@ -402,6 +402,54 @@ Nevada.apps =
     pagina.setAttribute 'class', ''
     return
 
+  enviarEmail: ->
+    formulario = document.querySelector '.formulario-contato form'
+
+    if formulario
+      campoNome = document.querySelector '#campo-nome'
+      campoEmail = document.querySelector '#campo-email'
+      campoLoja = document.querySelector '#campo-loja'
+      campoMensagem = document.querySelector '#campo-mensagem'
+      mensagemSucesso = document.querySelector '.mensagem-sucesso p'
+      botao = document.querySelector '#botao-enviar'
+
+      botao.addEventListener 'click', (evt) ->
+        xhr = new XMLHttpRequest()
+        regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+        mensagem = ''
+
+        if campoNome.value isnt ''
+          if campoEmail.value isnt '' and campoEmail.value.match(regexEmail) isnt null
+            if campoLoja.options.selectedIndex isnt 0
+              if campoMensagem.value isnt ''
+                mensagem += 'campo-nome=' + encodeURI(campoNome.value);
+                mensagem += '&campo-email=' + encodeURI(campoEmail.value);
+                mensagem += '&campo-loja=' + encodeURI(campoLoja.options[campoLoja.options.selectedIndex].innerHTML);
+                mensagem += '&campo-mensagem=' + encodeURI(campoMensagem.value);
+                xhr.open formulario.method, formulario.action + '?' + mensagem, true
+                xhr.send mensagem
+                xhr.onreadystatechange = ->
+                  if xhr.readyState is 4 and xhr.status is 200
+                    formulario.style.display = 'none'
+                    mensagemSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
+                  return
+              else
+                campoMensagem.focus()
+                campoMensagem.setAttribute 'class', 'erro'
+            else
+              campoLoja.focus()
+              campoLoja.setAttribute 'class', 'erro'
+          else
+            campoEmail.focus()
+            campoEmail.setAttribute 'class', 'erro'
+        else
+          campoNome.focus()
+          campoNome.setAttribute 'class', 'erro'
+
+        evt.preventDefault()
+        return
+    return
+
 Apps = Nevada.apps
 do ->
   Apps.transicaoPaginas()
@@ -422,6 +470,7 @@ do ->
   Apps.sliderPagInternas '.apresentacao-cursos-palestras'
   Apps.sliderPagInternas '.apresentacao-lojas'
   Apps.uploadCurriculo()
+  Apps.enviarEmail()
   return
 
 window.onload = ->
