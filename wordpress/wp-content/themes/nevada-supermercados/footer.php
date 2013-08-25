@@ -1,8 +1,9 @@
+      <div class="sombra-rodape"></div>
       <div class="rodape">
         <div class="menu">
           <ul>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Quem somos</a>
               <ul>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Nossos Lojas</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/acoes-sociais">Ações Socias</a></li>
@@ -10,7 +11,7 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos">Produtos e Serviços</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Produtos e Serviços</a>
               <ul>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Entrega em domicílio</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/cartao-da-loja">Cartão da Loja</a></li>
@@ -19,14 +20,17 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/ofertas">Ofertas</a>
+              <a href="<?php bloginfo('url'); ?>/index.php/ofertas/promocoes">Ofertas</a>
               <ul>  
                 <li><a href="<?php bloginfo('url'); ?>/index.php/ofertas/promocoes">Promoções</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/jornal-de-ofertas">Jornal de ofertas</a></li>
               </ul>
             </li>
             <li>
-              <a href="#">Siga-nos</a>
+              <a target="_blank" href="https://www.facebook.com/nevadasupermercados">Siga-nos</a>
+              <a target="_blank" href="https://www.facebook.com/nevadasupermercados">
+                <div class="icone-facebook"></div>
+              </a>
             </li>
           </ul>
         </div>

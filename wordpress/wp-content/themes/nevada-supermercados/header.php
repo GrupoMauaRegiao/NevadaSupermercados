@@ -34,7 +34,7 @@
               <a href="<?php bloginfo('url'); ?>/index.php">Home</a>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos">Quem somos <span>&#8250;</span></a>
+              <a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Quem somos <span>&#8250;</span></a>
               <ul class="submenu">
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/nossas-lojas">Nossas Lojas</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/quem-somos/acoes-sociais">Ações Sociais</a></li>
@@ -42,7 +42,7 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos">Produtos e Serviços <span>&#8250;</span></a>
+              <a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Produtos e Serviços <span>&#8250;</span></a>
               <ul class="submenu">
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/entrega-em-domicilio">Entrega em domicílio</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/produtos-e-servicos/cartao-da-loja">Cartão da Loja</a></li>
@@ -51,7 +51,7 @@
               </ul>
             </li>
             <li>
-              <a href="<?php bloginfo('url'); ?>/index.php/ofertas">Ofertas <span>&#8250;</span></a>
+              <a href="<?php bloginfo('url'); ?>/index.php/ofertas/promocoes">Ofertas <span>&#8250;</span></a>
               <ul class="submenu">
                 <li><a href="<?php bloginfo('url'); ?>/index.php/ofertas/promocoes">Promoções</a></li>
                 <li><a href="<?php bloginfo('url'); ?>/index.php/ofertas/jornal-de-ofertas">Jornal de ofertas</a></li>
