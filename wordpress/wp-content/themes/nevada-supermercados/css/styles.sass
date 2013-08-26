@@ -788,83 +788,98 @@ body
     background: transparent url("../imagens/sombra-topo.png") center bottom no-repeat
 
   .campanhas
-    width: 880px
-    height: 250px
+    width: 890px
+    height: 181px
     float: left
     margin: 0 0 0 20px
     padding: 20px 20px 0 20px
     text-transform: uppercase
 
     .campanha1,
-    .campanha2
-      width: 300px
+    .campanha2,
+    .campanha3
+      width: 291px
       height: 176px
       float: left
       text-align: center
       overflow: hidden
 
-      .hortifruti,
-      .carne
+      .mais-informacoes,
+      .aba
+        -webkit-transition: all 0.3s linear
+        -moz-transition: all 0.3s linear
+        -ms-transition: all 0.3s linear
+        -o-transition: all 0.3s linear
+        transition: all 0.3 linear
         opacity: 0
-        transform: translateY(180px)
-        -webkit-transform: translateY(180px)
-        transition: all 0.4s linear
-        -webkit-transition: all 0.4s linear
+
+      .mais-informacoes
+        background: rgb(240, 240, 240)
+        margin: 10px
+        padding: 20px
+        border-radius: 10px
+        box-shadow: 1px -1px 5px rgb(150, 150, 150), inset 0px 15px 15px rgb(220, 220, 220)
 
         p
-          font: 25px ProximaLight, Arial, sans-serif
-          color: rgb(255, 255, 255)
+          text-transform: none
+          color: rgb(100, 100, 100)
+          text-align: left
+          text-shadow: 1px 1px 0px rgb(255, 255, 255)
+          margin: 0 0 5px 0
+
+      .aba
+        width: 0
+        height: 0
+        border: 15px solid
+        border-color: rgb(240, 240, 240) transparent transparent transparent
+        margin: -10px 0 0 20px
+
+    .campanha1:hover,
+    .campanha2:hover,
+    .campanha3:hover
+      .mais-informacoes,
+      .aba
+        opacity: 1
 
     .campanha1
-      margin: 0 10px 0 0
       background: transparent url("../imagens/terca-verde.jpg") left top no-repeat
 
-    .campanha1:hover
-      .hortifruti
-        opacity: 1
-        transform: translateY(115px)
-        -webkit-transform: translateY(115px)
-
     .campanha2
+      margin: 0 5px 0 5px
       background: transparent url("../imagens/quinta-file.jpg") left top no-repeat
 
-    .campanha2:hover
-      .carne
-        opacity: 1
-        transform: translateY(115px)
-        -webkit-transform: translateY(115px)
+    .campanha3
+      background: transparent url("../imagens/sexta-delicia.jpg") left top no-repeat
 
-    .sombra-lateral
-      width: 45px
-      height: 176px
-      float: left
-      background: transparent url("../imagens/sombra-lateral.png") no-repeat right top
+  .display-cartao
+    width: 960px
+    height: 145px
+    float: left
+    background: url("../imagens/bg-display-cartao-da-loja-home.jpg") no-repeat 15px 0
 
     .cartao
-      width: 215px
-      padding: 0 0 0 10px
+      width: 230px
+      height: 145px
+      background: transparent url("../imagens/animacao-cartao/c01.png") no-repeat left top
+      margin: 0 0 0 25px
       float: left
 
-      .animacao-cartao
-        height: 145px
-        background: transparent url("../imagens/animacao-cartao/c01.png") no-repeat left top
+    .cartao:hover
+      animation: girarCartao 0.3s linear 0s
+      -webkit-animation: girarCartao 0.3s linear 0s
 
-      .animacao-cartao:hover
-        animation: girarCartao 0.3s linear 0s
-        -webkit-animation: girarCartao 0.3s linear 0s
+    .lista-de-vantagens
+      float: left
+      margin: 12px 0 0 390px
 
-      .informacao
-        p:nth-child(1)
-          font-size: 22px
-          color: rgb(51, 71, 125)
+      ul
+        li
+          color: rgb(100, 100, 100)
+          font-size: 13px
+          line-height: 20px
 
           span
-            font-weight: bold
-
-        p:nth-child(2)
-          margin: 10px 0 0 0
-          font-size: 20px
-          color: rgb(132, 132, 132)
+            font-size: 10px
 
   .slides
     margin: 150px 0 0 0

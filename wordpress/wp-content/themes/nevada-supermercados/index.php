@@ -98,29 +98,41 @@
 
       <div class="campanhas">
         <div class="campanha1">
-          <div class="hortifruti">
-            <p>Terça-feira é<br />
-               dia de hortifruti</p>
+          <div class="mais-informacoes">
+            <p>Com frutas, verduras e legumes de ótima qualidade para você!</p>
+            <p>Nas compras acima de R$30,00 você ganha um brinde de nosso 
+            hortifruti, venha conferir!</p>
           </div>
+          <div class="aba"></div>
         </div>
-        <div class="campanha2">
-          <div class="carne">
-            <p>Quinta-feira é<br />
-               dia de carne</p>
-          </div>
-        </div>
-
-        <div class="sombra-lateral"></div>
         
-        <div class="cartao">
-          <div class="animacao-cartao">
-
+        <div class="campanha2">
+          <div class="mais-informacoes">
+            <p>Ofertas arrasadoras do nosso setor de açougue!</p>
           </div>
-          <div class="informacao">
-            <p>Faça já o seu <br />
-               <span>Cartão Nevada</span></p>
-            <p>Cheio de vantagens!</p>
-          </div>
+          <div class="aba"></div>
         </div>
-      </div><!-- # Campanhas -->
+
+        <div class="campanha3">
+          <div class="mais-informacoes">
+            <p>Os melhores e mais deliciosos produtos de nossa padaria,
+            com um preço pra lá de imperdível!</p>
+          </div>
+          <div class="aba"></div>
+        </div>
+      </div>
+
+      <div class="display-cartao">
+        <div class="cartao"></div>
+        <div class="lista-de-vantagens">
+          <ul>
+            <li>Crédito aprovado na hora <span>(sujeito a análise)</span> </li>
+            <li>Tem até 40 dias para pagar</li>
+            <li>Limite é liberado na hora</li>
+            <li>Parcelamos em até 3x sem juros</li>
+            <li>Sem taxa de adesão</li>
+            <li>Sem anuidade</li>
+          </ul>
+        </div>
+      </div>
 <?php get_footer(); ?>
