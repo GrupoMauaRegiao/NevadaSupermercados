@@ -23,6 +23,6 @@
   $headers .= "From: " . $campoEmail . $quebraLinha;
 
   if(!mail($destino, $campoLoja, $campoMensagem, $headers , "-r" . $destino)) {
-    mail($destino, $campoLoja, $campMensagem, $headers);
+    mail($destino, $campoLoja, $campoMensagem, $headers);
   }
 ?>

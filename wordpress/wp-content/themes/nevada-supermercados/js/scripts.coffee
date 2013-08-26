@@ -293,6 +293,7 @@ Nevada.apps =
       formatos = [
        'image/jpeg',
        'application/pdf',
+       'application/stream'
        'application/msword',
        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
       ]
@@ -333,7 +334,8 @@ Nevada.apps =
             if arquivo.type is formatos[0] \
                or arquivo.type is formatos[1] \
                or arquivo.type is formatos[2] \
-               or arquivo.type is formatos[3]
+               or arquivo.type is formatos[3] \
+               or arquivo.type is formatos[4]
               xhr.upload.onprogress = (evt) ->
                 if evt.lengthComputable
                   _mudarCursor 'wait'

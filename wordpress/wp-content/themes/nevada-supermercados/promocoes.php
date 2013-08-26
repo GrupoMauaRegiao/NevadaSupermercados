@@ -1,4 +1,4 @@
-<?php 
+<?php
   $camposOferta = array(
     "Imagem OFERTA",
     "Preço OFERTA"
