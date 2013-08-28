@@ -1,5 +1,31 @@
 Nevada = Nevada || {}
 Nevada.apps =
+  indexOf: ->
+    # Mozilla Developer Network
+    unless Array::indexOf
+      Array::indexOf = (searchElement) -> #, fromIndex
+        'use strict'
+        throw new TypeError()  unless this?
+        n = undefined
+        k = undefined
+        t = Object(this)
+        len = t.length >>> 0
+        return -1  if len is 0
+        n = 0
+        if arguments.length > 1
+          n = Number(arguments[1])
+          unless n is n # shortcut for verifying if it's NaN
+            n = 0
+          else n = (n > 0 or -1) * Math.floor(Math.abs(n)) \
+          if n isnt 0 and n isnt Infinity and n isnt -Infinity
+        return -1  if n >= len
+        k = (if n >= 0 then n else Math.max(len - Math.abs(n), 0))
+        while k < len
+          return k  if k of t and t[k] is searchElement
+          k++
+        -1
+      return
+
   converterSegParaMili: (tempoSegundos) ->
     tempoSegundos * 1000
 
@@ -46,10 +72,18 @@ Nevada.apps =
         controles = document.querySelector '.controles'
         btnAnterior = document.querySelector '.anterior'
         btnProximo = document.querySelector '.proximo'
-        btnAnterior.addEventListener 'click', _anterior
-        btnProximo.addEventListener 'click', _proximo
-        controles.addEventListener 'mouseover', _pause
-        controles.addEventListener 'mouseout', _play
+
+        if btnAnterior.addEventListener
+          btnAnterior.addEventListener 'click', _anterior
+          btnProximo.addEventListener 'click', _proximo
+          controles.addEventListener 'mouseover', _pause
+          controles.addEventListener 'mouseout', _play
+        else
+          # IE < 9
+          btnAnterior.attachEvent 'onclick', _anterior
+          btnProximo.attachEvent 'onclick', _proximo
+          controles.attachEvent 'onmouseover', _pause
+          controles.attachEvent 'onmouseout', _play
         return
 
       _destacarSlide = (n) ->
@@ -168,13 +202,33 @@ Nevada.apps =
       arrImgs = _nodeListParaArray()
 
       _listeners = ->
+
+        _ie8 = (evt) ->
+          caller = evt.srcElement
+          nSlide = arrImgs.indexOf caller
+          _exibir caller
+          return
+
         for item, i in imgs by 1
-          imgs[i].addEventListener 'click', _ativarClick
+          if imgs[i].addEventListener
+            imgs[i].addEventListener 'click', _ativarClick
+          else
+            # IE < 9 :(
+            imgs[i].attachEvent 'onclick', _ie8
 
         if botaoVoltar
-          botaoVoltar.addEventListener 'click', _voltar
+          if botaoVoltar.addEventListener
+            botaoVoltar.addEventListener 'click', _voltar
+          else
+            # IE < 9
+            botaoVoltar.attachEvent 'onclick', _voltar
+
         if botaoAvancar
-          botaoAvancar.addEventListener 'click', _avancar
+          if botaoAvancar.addEventListener
+            botaoAvancar.addEventListener 'click', _avancar
+          else
+            # IE < 9
+            botaoAvancar.attachEvent 'onclick', _avancar
         return
 
       _ativarClick = ->
@@ -202,7 +256,12 @@ Nevada.apps =
           _desativarSlides()
           _exibir imgs[nSlide]
           _ativarSlideMiniatura imgs[nSlide]
-        evt.preventDefault()
+
+        if evt.preventDefault
+          evt.preventDefault()
+        else
+          # IE < 9
+          evt.returnValue = false
         return
 
       _avancar = (evt) ->
@@ -216,7 +275,12 @@ Nevada.apps =
           _desativarSlides()
           _exibir imgs[nSlide]
           _ativarSlideMiniatura imgs[nSlide]
-        evt.preventDefault()
+
+        if evt.preventDefault
+          evt.preventDefault()
+        else
+          # IE < 9
+          evt.returnValue = false
         return
 
       _esconderSlides = ->
@@ -226,7 +290,7 @@ Nevada.apps =
         return
 
       _exibir = (img) ->
-        srcAtivo = img.getAttribute 'src'
+        srcAtivo = img.getAttribute('src')
         src = srcAtivo.substr(0, srcAtivo.length - 11) +
               'w=' + WIDTH + '&' +
               'h=' + HEIGHT
@@ -247,7 +311,11 @@ Nevada.apps =
 
     if barra
       _listeners = ->
-        window.addEventListener 'scroll', _animacao
+        if window.addEventListener
+          window.addEventListener 'scroll', _animacao
+        else
+          # IE < 9
+          window.attachEvent 'onscroll', _animacao
         return
 
       _animacao = ->
@@ -267,7 +335,11 @@ Nevada.apps =
 
     if foto
       _listeners = ->
-        window.addEventListener 'scroll', _animacao
+        if window.addEventListener
+          window.addEventListener 'scroll', _animacao
+        else
+          # IE < 9
+          window.attachEvent 'onscroll', _animacao
         return
 
       _animacao = ->
@@ -324,47 +396,91 @@ Nevada.apps =
         alerta.style.opacity = 1
         return
 
-      campo.addEventListener 'change', (evt) ->
-        xhr = new XMLHttpRequest()
-        arquivo = campo.files[0]
-        FILESIZE = (2 * 1024) * 1024
+      if campo.addEventListener
+        campo.addEventListener 'change', (evt) ->
+          xhr = new XMLHttpRequest()
+          arquivo = campo.files[0]
+          FILESIZE = (2 * 1024) * 1024
 
-        if xhr.upload
-          if arquivo.size <= FILESIZE
-            if arquivo.type is formatos[0] \
-               or arquivo.type is formatos[1] \
-               or arquivo.type is formatos[2] \
-               or arquivo.type is formatos[3] \
-               or arquivo.type is formatos[4]
-              xhr.upload.onprogress = (evt) ->
-                if evt.lengthComputable
-                  _mudarCursor 'wait'
-                  _exibirMensagem 'Enviando...'
-                  _ativarAnimacao()
-                  _exibirAlerta 'Carregando o arquivo "' + arquivo.name + '"...'
-                return
-              xhr.open formulario.method, formulario.action, true
-              xhr.setRequestHeader "AJAXUPLOAD", arquivo.name
-              xhr.send arquivo
-              xhr.onreadystatechange = ->
-                if xhr.readyState is 4 and xhr.status is 200
-                  _mudarCursor 'auto'
-                  _exibirMensagem 'Currículo enviado!'
-                  _desativarAnimacao()
-                  _exibirAlerta 'Arquivo "' +
-                                arquivo.name +
-                                '" carregado com sucesso!'
-                return
+          if xhr.upload
+            if arquivo.size <= FILESIZE
+              if arquivo.type is formatos[0] \
+                 or arquivo.type is formatos[1] \
+                 or arquivo.type is formatos[2] \
+                 or arquivo.type is formatos[3] \
+                 or arquivo.type is formatos[4]
+                xhr.upload.onprogress = (evt) ->
+                  if evt.lengthComputable
+                    _mudarCursor 'wait'
+                    _exibirMensagem 'Enviando...'
+                    _ativarAnimacao()
+                    _exibirAlerta 'Carregando o arquivo "' + arquivo.name + '"...'
+                  return
+                xhr.open formulario.method, formulario.action, true
+                xhr.setRequestHeader "AJAXUPLOAD", arquivo.name
+                xhr.send arquivo
+                xhr.onreadystatechange = ->
+                  if xhr.readyState is 4 and xhr.status is 200
+                    _mudarCursor 'auto'
+                    _exibirMensagem 'Currículo enviado!'
+                    _desativarAnimacao()
+                    _exibirAlerta 'Arquivo "' +
+                                  arquivo.name +
+                                  '" carregado com sucesso!'
+                  return
+              else
+                _exibirAlerta 'Formato de arquivo inválido. ' +
+                              'Envie apenas .docx, .doc, .pdf ou .jpg.'
             else
-              _exibirAlerta 'Formato de arquivo inválido. ' +
-                            'Envie apenas .docx, .doc, .pdf ou .jpg.'
-          else
-            _exibirAlerta 'Seu arquivo possui ' +
-                          ((arquivo.size / 1024) / 1024).toFixed(1) +
-                          ' MB e ultrapassa o limite de ' +
-                          ((FILESIZE / 1024) / 1024).toFixed(1) +
-                          ' MB permitidos.'
-        return
+              _exibirAlerta 'Seu arquivo possui ' +
+                            ((arquivo.size / 1024) / 1024).toFixed(1) +
+                            ' MB e ultrapassa o limite de ' +
+                            ((FILESIZE / 1024) / 1024).toFixed(1) +
+                            ' MB permitidos.'
+          return
+      else
+        # IE < 9
+        campo.attachEvent 'onchange', (evt) ->
+          xhr = new XMLHttpRequest()
+          arquivo = campo.files[0]
+          FILESIZE = (2 * 1024) * 1024
+
+          if xhr.upload
+            if arquivo.size <= FILESIZE
+              if arquivo.type is formatos[0] \
+                 or arquivo.type is formatos[1] \
+                 or arquivo.type is formatos[2] \
+                 or arquivo.type is formatos[3] \
+                 or arquivo.type is formatos[4]
+                xhr.upload.onprogress = (evt) ->
+                  if evt.lengthComputable
+                    _mudarCursor 'wait'
+                    _exibirMensagem 'Enviando...'
+                    _ativarAnimacao()
+                    _exibirAlerta 'Carregando o arquivo "' + arquivo.name + '"...'
+                  return
+                xhr.open formulario.method, formulario.action, true
+                xhr.setRequestHeader "AJAXUPLOAD", arquivo.name
+                xhr.send arquivo
+                xhr.onreadystatechange = ->
+                  if xhr.readyState is 4 and xhr.status is 200
+                    _mudarCursor 'auto'
+                    _exibirMensagem 'Currículo enviado!'
+                    _desativarAnimacao()
+                    _exibirAlerta 'Arquivo "' +
+                                  arquivo.name +
+                                  '" carregado com sucesso!'
+                  return
+              else
+                _exibirAlerta 'Formato de arquivo inválido. ' +
+                              'Envie apenas .docx, .doc, .pdf ou .jpg.'
+            else
+              _exibirAlerta 'Seu arquivo possui ' +
+                            ((arquivo.size / 1024) / 1024).toFixed(1) +
+                            ' MB e ultrapassa o limite de ' +
+                            ((FILESIZE / 1024) / 1024).toFixed(1) +
+                            ' MB permitidos.'
+          return
     return
 
   ajustarBackground: ->
@@ -372,7 +488,8 @@ Nevada.apps =
 
     if cabecalho
       for item in cabecalho
-        w = item.textContent.length * 20
+        w = if item.textContent then item.textContent.length * 20 \
+            else item.innerText.length * 120
         item.style.width = w + 'px'
     return
 
@@ -380,18 +497,35 @@ Nevada.apps =
     pagina = document.body
     links = document.querySelectorAll '.menu a'
 
+    _animacao_ie8 = (evt) ->
+      _this = evt.srcElement
+      interval = setInterval ->
+        window.location = _this.href
+        return
+      , 1500
+      return
+
     _animacao = (evt) ->
       _this = this
       pagina.style.opacity = 0
       interval = setInterval ->
-        window.location = _this.href
+        window.location = _this.getAttribute 'href'
         return
-      , 1000
-      evt.preventDefault()
+      , 1500
+
+      if evt.preventDefault
+        evt.preventDefault()
+      else
+        # IE < 9
+        evt.returnValue = false
       return
 
     for item in links
-      item.addEventListener 'click', _animacao
+      if item.addEventListener
+        item.addEventListener 'click', _animacao
+      else
+        # IE < 9
+        item.attachEvent 'onclick', _animacao_ie8
     return
 
   exibirPagina: ->
@@ -415,45 +549,92 @@ Nevada.apps =
       mensagemSucesso = document.querySelector '.mensagem-sucesso p'
       botao = document.querySelector '#botao-enviar'
 
-      botao.addEventListener 'click', (evt) ->
-        xhr = new XMLHttpRequest()
-        regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-        mensagem = ''
+      if botao.addEventListener
+        botao.addEventListener 'click', (evt) ->
+          xhr = new XMLHttpRequest()
+          regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+          mensagem = ''
 
-        if campoNome.value isnt ''
-          if campoEmail.value isnt '' and campoEmail.value.match(regexEmail) isnt null
-            if campoLoja.options.selectedIndex isnt 0
-              if campoMensagem.value isnt ''
-                mensagem += 'campo-nome=' + encodeURI(campoNome.value);
-                mensagem += '&campo-email=' + encodeURI(campoEmail.value);
-                mensagem += '&campo-loja=' + encodeURI(campoLoja.options[campoLoja.options.selectedIndex].innerHTML);
-                mensagem += '&campo-mensagem=' + encodeURI(campoMensagem.value);
-                xhr.open formulario.method, formulario.action + '?' + mensagem, true
-                xhr.send mensagem
-                xhr.onreadystatechange = ->
-                  if xhr.readyState is 4 and xhr.status is 200
-                    formulario.style.display = 'none'
-                    mensagemSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
-                  return
+          if campoNome.value isnt ''
+            if campoEmail.value isnt '' and campoEmail.value.match(regexEmail) isnt null
+              if campoLoja.options.selectedIndex isnt 0
+                if campoMensagem.value isnt ''
+                  mensagem += 'campo-nome=' + encodeURI(campoNome.value)
+                  mensagem += '&campo-email=' + encodeURI(campoEmail.value)
+                  mensagem += '&campo-loja=' + encodeURI(campoLoja.options[campoLoja.options.selectedIndex].innerHTML)
+                  mensagem += '&campo-mensagem=' + encodeURI(campoMensagem.value)
+                  xhr.open formulario.method, formulario.action + '?' + mensagem, true
+                  xhr.send mensagem
+                  xhr.onreadystatechange = ->
+                    if xhr.readyState is 4 and xhr.status is 200
+                      formulario.style.display = 'none'
+                      mensagemSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
+                    return
+                else
+                  campoMensagem.focus()
+                  campoMensagem.setAttribute 'class', 'erro'
               else
-                campoMensagem.focus()
-                campoMensagem.setAttribute 'class', 'erro'
+                campoLoja.focus()
+                campoLoja.setAttribute 'class', 'erro'
             else
-              campoLoja.focus()
-              campoLoja.setAttribute 'class', 'erro'
+              campoEmail.focus()
+              campoEmail.setAttribute 'class', 'erro'
           else
-            campoEmail.focus()
-            campoEmail.setAttribute 'class', 'erro'
-        else
-          campoNome.focus()
-          campoNome.setAttribute 'class', 'erro'
+            campoNome.focus()
+            campoNome.setAttribute 'class', 'erro'
 
-        evt.preventDefault()
-        return
+          if evt.preventDefault
+            evt.preventDefault()
+          else
+            # IE < 9
+            evt.returnValue = false
+          return
+      else
+        # IE < 9
+        botao.attachEvent 'onclick', (evt) ->
+          xhr = new XMLHttpRequest()
+          regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+          mensagem = ''
+
+          if campoNome.value isnt ''
+            if campoEmail.value isnt '' and campoEmail.value.match(regexEmail) isnt null
+              if campoLoja.options.selectedIndex isnt 0
+                if campoMensagem.value isnt ''
+                  mensagem += 'campo-nome=' + encodeURI(campoNome.value)
+                  mensagem += '&campo-email=' + encodeURI(campoEmail.value)
+                  mensagem += '&campo-loja=' + encodeURI(campoLoja.options[campoLoja.options.selectedIndex].innerHTML)
+                  mensagem += '&campo-mensagem=' + encodeURI(campoMensagem.value)
+                  xhr.open formulario.method, formulario.action + '?' + mensagem, true
+                  xhr.send mensagem
+                  xhr.onreadystatechange = ->
+                    if xhr.readyState is 4 and xhr.status is 200
+                      formulario.style.display = 'none'
+                      mensagemSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
+                    return
+                else
+                  campoMensagem.focus()
+                  campoMensagem.setAttribute 'class', 'erro'
+              else
+                campoLoja.focus()
+                campoLoja.setAttribute 'class', 'erro'
+            else
+              campoEmail.focus()
+              campoEmail.setAttribute 'class', 'erro'
+          else
+            campoNome.focus()
+            campoNome.setAttribute 'class', 'erro'
+
+          if evt.preventDefault
+            evt.preventDefault()
+          else
+            # IE < 9
+            evt.returnValue = false
+          return
     return
 
 Apps = Nevada.apps
 do ->
+  Apps.indexOf()
   Apps.transicaoPaginas()
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()

@@ -26,5 +26,4 @@
       <?php endwhile; else: ?>
     <?php endif; ?>
   </div>
-  <div class="sombra-imagem"></div>
 </div>

@@ -12,9 +12,10 @@
   if ($nomeArquivo) {
     file_put_contents("uploads/" . $nomeArquivo, file_get_contents("php://input"));
 
-    $destino = "arte@revistamaua.com.br";
-    $url = "http://marcker.net/nevada-wordpress";
-    $diretorio = $url . "/wp-content/themes/nevada-supermercados/uploads/" . $nomeArquivo;
+    $destino = "marckfree@gmail.com";
+    $url = "http://nevadasupermercados.com.br";
+
+    $diretorio = $url . "/wp-content/themes/nevada-supermercados1/uploads/" . $nomeArquivo;
     $corpoMensagem = "Um currículo foi recebido e poderá ser visualizado utilizando o link:<br /> <a href='$diretorio'>$nomeArquivo</a>";
     $mensagem = "<p>" . $corpoMensagem . "</p>";
     $assunto = "Currículo recebido pelo site";

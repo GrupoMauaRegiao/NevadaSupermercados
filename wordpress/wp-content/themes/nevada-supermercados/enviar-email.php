@@ -6,7 +6,7 @@
   }
 
   $headers = "";
-  $destino = "arte@revistamaua.com.br";
+  $destino = "marckfree@gmail.com";
   $campoNome = $_GET["campo-nome"];
   $campoEmail = $_GET["campo-email"];
   $campoLoja = "Mensagem para a " . $_GET["campo-loja"];
