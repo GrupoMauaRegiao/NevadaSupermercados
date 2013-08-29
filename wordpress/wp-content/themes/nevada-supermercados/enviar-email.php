@@ -5,24 +5,31 @@
     $quebraLinha = "\n";
   }
 
-  $headers = "";
-  $destino = "marckfree@gmail.com";
-  $campoNome = $_GET["campo-nome"];
+  $campoLoja = $_GET["campo-loja"];
+
+  if ($campoLoja == "Loja 1") {
+    $destino = "loja1@nevadasupermercados.com.br";
+  } elseif ($campoLoja == "Loja 2") {
+    $destino = "loja2@nevadasupermercados.com.br";
+  } elseif ($campoLoja == "Loja 3") {
+    $destino = "loja3@nevadasupermercados.com.br";
+  } elseif ($campoLoja == "Loja 4") {
+    $destino = "loja4@nevadasupermercados.com.br";
+  } elseif ($campoLoja == "Loja 5") {
+    $destino = "loja5@nevadasupermercados.com.br";
+  }
+
+  $assunto = "Mensagem do site para a " . $campoLoja;
   $campoEmail = $_GET["campo-email"];
-  $campoLoja = "Mensagem para a " . $_GET["campo-loja"];
-  $campoMensagem = $_GET["campo-mensagem"];
+  $campoNome = $_GET["campo-nome"];
+  $campoMensagem = "<pre>" . $_GET["campo-mensagem"] . "</pre>";
 
-  $mensagem = 
-    "<p><b>Nome:</b> " . $campoNome . "</p>
-     <p><b>E-mail:</b> " . $campoEmail . "</p>
-     <p><b>Assunto:</b> " . $campoLoja . "</p>
-     <p><b>Mensagem:</b><pre> " . $campoMensagem . "</pre></p>";
-
+  $headers = "";
   $headers .= "MIME-Version: 1.1" . $quebraLinha;
   $headers .= "Content-type: text/html; charset=utf-8" . $quebraLinha;
   $headers .= "From: " . $campoEmail . $quebraLinha;
 
-  if(!mail($destino, $campoLoja, $campoMensagem, $headers , "-r" . $destino)) {
-    mail($destino, $campoLoja, $campoMensagem, $headers);
+  if(!mail($destino, $assunto, $campoMensagem, $headers , "-r" . $destino)) {
+    mail($destino, $assunto, $campoMensagem, $headers);
   }
 ?>

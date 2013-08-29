@@ -20,13 +20,13 @@
   <div class="cabecalho-textual">
     <h2>Serviços</h2>
   </div>
-  <div class="texto servicos">
+  <div class="texto">
     <p>Para melhor atende-los e com um maior conforto em nossas lojas,
     todas são equipadas com o Banco 24 Horas e também em algumas lojas da rede
     temos o *PontoCerto (Carregamento do cartão BOM e Sodexo Refeição) e
     Banco Bradesco (BDN)**<br />
-    <span>*Exceto na Loja 3 e 5<br />
-    ** Apenas Loja 5</span></p>
+    <small>*Exceto na Loja 3 e 5<br />
+    ** Apenas Loja 5</small></p>
   </div>
 
   <div class="imagem">

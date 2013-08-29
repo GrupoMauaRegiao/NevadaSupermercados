@@ -5,7 +5,7 @@ Nevada.apps =
     unless Array::indexOf
       Array::indexOf = (searchElement) -> #, fromIndex
         'use strict'
-        throw new TypeError()  unless this?
+        throw new TypeError() unless this?
         n = undefined
         k = undefined
         t = Object(this)
@@ -151,17 +151,18 @@ Nevada.apps =
     return
 
   controlarTamanhoString: (seletor, maxCaract) ->
-    tag = document.querySelector(seletor)
-
-    if tag
-      if tag.textContent
-        texto = tag.textContent
-        if texto.length > maxCaract
-          tag.textContent = texto.slice(0, maxCaract) + '...'
+    tag = document.querySelectorAll seletor
+    if tag[0]
+      if tag[0].textContent
+        for item in tag by 1
+          texto = item.textContent
+          if texto.length > maxCaract
+            item.textContent = texto.slice(0, maxCaract) + '...'
       else
-        texto = tag.innerText
-        if texto.length > maxCaract
-          tag.innerText = texto.slice(0, maxCaract) + '...'
+        for item in tag by 1
+          texto = item.innerText
+          if texto.length > maxCaract
+            item.innerText = texto.slice(0, maxCaract) + '...'
     return
 
   configIdIssuu: ->
@@ -196,7 +197,7 @@ Nevada.apps =
 
       _nodeListParaArray = ->
         arr = []
-        for i in imgs
+        for i in imgs by 1
           arr.push i
         arr
       arrImgs = _nodeListParaArray()
@@ -319,6 +320,9 @@ Nevada.apps =
         return
 
       _animacao = ->
+        unless this.pageYOffset
+          barra.style.height = '0'
+
         if this.pageYOffset > 0
           barra.style.height = '0'
         else if this.pageYOffset is 0
@@ -441,45 +445,10 @@ Nevada.apps =
       else
         # IE < 9
         campo.attachEvent 'onchange', (evt) ->
-          xhr = new XMLHttpRequest()
-          arquivo = campo.files[0]
-          FILESIZE = (2 * 1024) * 1024
-
-          if xhr.upload
-            if arquivo.size <= FILESIZE
-              if arquivo.type is formatos[0] \
-                 or arquivo.type is formatos[1] \
-                 or arquivo.type is formatos[2] \
-                 or arquivo.type is formatos[3] \
-                 or arquivo.type is formatos[4]
-                xhr.upload.onprogress = (evt) ->
-                  if evt.lengthComputable
-                    _mudarCursor 'wait'
-                    _exibirMensagem 'Enviando...'
-                    _ativarAnimacao()
-                    _exibirAlerta 'Carregando o arquivo "' + arquivo.name + '"...'
-                  return
-                xhr.open formulario.method, formulario.action, true
-                xhr.setRequestHeader "AJAXUPLOAD", arquivo.name
-                xhr.send arquivo
-                xhr.onreadystatechange = ->
-                  if xhr.readyState is 4 and xhr.status is 200
-                    _mudarCursor 'auto'
-                    _exibirMensagem 'Currículo enviado!'
-                    _desativarAnimacao()
-                    _exibirAlerta 'Arquivo "' +
-                                  arquivo.name +
-                                  '" carregado com sucesso!'
-                  return
-              else
-                _exibirAlerta 'Formato de arquivo inválido. ' +
-                              'Envie apenas .docx, .doc, .pdf ou .jpg.'
-            else
-              _exibirAlerta 'Seu arquivo possui ' +
-                            ((arquivo.size / 1024) / 1024).toFixed(1) +
-                            ' MB e ultrapassa o limite de ' +
-                            ((FILESIZE / 1024) / 1024).toFixed(1) +
-                            ' MB permitidos.'
+          _exibirMensagem 'Seu navegador não oferece suporte a este ' +
+                          'recurso. <br /><small>Mas você pode enviar o ' +
+                          'seu currículo para o e-mail: ' +
+                          'curriculo@nevadasupermercados.com.br</small>'
           return
     return
 
@@ -487,9 +456,9 @@ Nevada.apps =
     cabecalho = document.querySelectorAll '.cabecalho-textual'
 
     if cabecalho
-      for item in cabecalho
+      for item in cabecalho by 1
         w = if item.textContent then item.textContent.length * 20 \
-            else item.innerText.length * 120
+            else item.innerText.length * 20
         item.style.width = w + 'px'
     return
 
@@ -520,7 +489,7 @@ Nevada.apps =
         evt.returnValue = false
       return
 
-    for item in links
+    for item in links by 1
       if item.addEventListener
         item.addEventListener 'click', _animacao
       else
@@ -639,8 +608,8 @@ do ->
   Apps.carregarScripts()
   Apps.removerBackgroundMenu()
   Apps.ajustarBackground()
-  Apps.slider()
   Apps.controlarTamanhoString '.nome-produto p', 25
+  Apps.slider()
   Apps.configIdIssuu()
   Apps.configIdYouTube()
   Apps.animBarraSup()
