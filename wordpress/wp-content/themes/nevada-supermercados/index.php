@@ -121,18 +121,20 @@
           <div class="aba"></div>
         </div>
       </div>
-
-      <div class="display-cartao">
-        <div class="cartao"></div>
-        <div class="lista-de-vantagens">
-          <ul>
-            <li>Crédito aprovado na hora <span>(sujeito a análise)</span> </li>
-            <li>Tem até 40 dias para pagar</li>
-            <li>Limite é liberado na hora</li>
-            <li>Parcelamos em até 3x sem juros</li>
-            <li>Sem taxa de adesão</li>
-            <li>Sem anuidade</li>
-          </ul>
+      
+      <a href="<?php bloginfo('url'); ?>/produtos-e-servicos/cartao-da-loja">
+        <div class="display-cartao">
+          <div class="cartao"></div>
+          <div class="lista-de-vantagens">
+            <ul>
+              <li>Crédito aprovado na hora <span>(sujeito a análise)</span> </li>
+              <li>Tem até 40 dias para pagar</li>
+              <li>Limite é liberado na hora</li>
+              <li>Parcelamos em até 3x sem juros</li>
+              <li>Sem taxa de adesão</li>
+              <li>Sem anuidade</li>
+            </ul>
+          </div>
         </div>
-      </div>
+      </a>
 <?php get_footer(); ?>

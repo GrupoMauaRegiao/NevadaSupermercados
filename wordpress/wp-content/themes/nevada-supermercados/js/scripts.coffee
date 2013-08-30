@@ -418,7 +418,8 @@ Nevada.apps =
                     _mudarCursor 'wait'
                     _exibirMensagem 'Enviando...'
                     _ativarAnimacao()
-                    _exibirAlerta 'Carregando o arquivo "' + arquivo.name + '"...'
+                    _exibirAlerta 'Carregando o arquivo "' +
+                                  arquivo.name + '"...'
                   return
                 xhr.open formulario.method, formulario.action, true
                 xhr.setRequestHeader "AJAXUPLOAD", arquivo.name
@@ -511,46 +512,47 @@ Nevada.apps =
     formulario = document.querySelector '.formulario-contato form'
 
     if formulario
-      campoNome = document.querySelector '#campo-nome'
-      campoEmail = document.querySelector '#campo-email'
-      campoLoja = document.querySelector '#campo-loja'
-      campoMensagem = document.querySelector '#campo-mensagem'
-      mensagemSucesso = document.querySelector '.mensagem-sucesso p'
+      # cTEXT === campoTEXT
+      cNome = document.querySelector '#campo-nome'
+      cEmail = document.querySelector '#campo-email'
+      cLoja = document.querySelector '#campo-loja'
+      cMsg = document.querySelector '#campo-mensagem'
+      msgSucesso = document.querySelector '.mensagem-sucesso p'
       botao = document.querySelector '#botao-enviar'
 
       if botao.addEventListener
         botao.addEventListener 'click', (evt) ->
           xhr = new XMLHttpRequest()
           regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-          mensagem = ''
+          msg = ''
 
-          if campoNome.value isnt ''
-            if campoEmail.value isnt '' and campoEmail.value.match(regexEmail) isnt null
-              if campoLoja.options.selectedIndex isnt 0
-                if campoMensagem.value isnt ''
-                  mensagem += 'campo-nome=' + encodeURI(campoNome.value)
-                  mensagem += '&campo-email=' + encodeURI(campoEmail.value)
-                  mensagem += '&campo-loja=' + encodeURI(campoLoja.options[campoLoja.options.selectedIndex].innerHTML)
-                  mensagem += '&campo-mensagem=' + encodeURI(campoMensagem.value)
-                  xhr.open formulario.method, formulario.action + '?' + mensagem, true
-                  xhr.send mensagem
+          if cNome.value isnt ''
+            if cEmail.value isnt '' and cEmail.value.match(regexEmail) isnt null
+              if cLoja.options.selectedIndex isnt 0
+                if cMsg.value isnt ''
+                  msg += 'campo-nome=' + encodeURI(cNome.value)
+                  msg += '&campo-email=' + encodeURI(cEmail.value)
+                  msg += '&campo-loja=' + encodeURI(cLoja.options[cLoja.options.selectedIndex].innerHTML)
+                  msg += '&campo-mensagem=' + encodeURI(cMsg.value)
+                  xhr.open formulario.method, formulario.action + '?' + msg, true
+                  xhr.send msg
                   xhr.onreadystatechange = ->
                     if xhr.readyState is 4 and xhr.status is 200
                       formulario.style.display = 'none'
-                      mensagemSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
+                      msgSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
                     return
                 else
-                  campoMensagem.focus()
-                  campoMensagem.setAttribute 'class', 'erro'
+                  cMsg.focus()
+                  cMsg.setAttribute 'class', 'erro'
               else
-                campoLoja.focus()
-                campoLoja.setAttribute 'class', 'erro'
+                cLoja.focus()
+                cLoja.setAttribute 'class', 'erro'
             else
-              campoEmail.focus()
-              campoEmail.setAttribute 'class', 'erro'
+              cEmail.focus()
+              cEmail.setAttribute 'class', 'erro'
           else
-            campoNome.focus()
-            campoNome.setAttribute 'class', 'erro'
+            cNome.focus()
+            cNome.setAttribute 'class', 'erro'
 
           if evt.preventDefault
             evt.preventDefault()
@@ -563,35 +565,35 @@ Nevada.apps =
         botao.attachEvent 'onclick', (evt) ->
           xhr = new XMLHttpRequest()
           regexEmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
-          mensagem = ''
+          msg = ''
 
-          if campoNome.value isnt ''
-            if campoEmail.value isnt '' and campoEmail.value.match(regexEmail) isnt null
-              if campoLoja.options.selectedIndex isnt 0
-                if campoMensagem.value isnt ''
-                  mensagem += 'campo-nome=' + encodeURI(campoNome.value)
-                  mensagem += '&campo-email=' + encodeURI(campoEmail.value)
-                  mensagem += '&campo-loja=' + encodeURI(campoLoja.options[campoLoja.options.selectedIndex].innerHTML)
-                  mensagem += '&campo-mensagem=' + encodeURI(campoMensagem.value)
-                  xhr.open formulario.method, formulario.action + '?' + mensagem, true
-                  xhr.send mensagem
+          if cNome.value isnt ''
+            if cEmail.value isnt '' and cEmail.value.match(regexEmail) isnt null
+              if cLoja.options.selectedIndex isnt 0
+                if cMsg.value isnt ''
+                  msg += 'campo-nome=' + encodeURI(cNome.value)
+                  msg += '&campo-email=' + encodeURI(cEmail.value)
+                  msg += '&campo-loja=' + encodeURI(cLoja.options[cLoja.options.selectedIndex].innerHTML)
+                  msg += '&campo-mensagem=' + encodeURI(cMsg.value)
+                  xhr.open formulario.method, formulario.action + '?' + msg, true
+                  xhr.send msg
                   xhr.onreadystatechange = ->
                     if xhr.readyState is 4 and xhr.status is 200
                       formulario.style.display = 'none'
-                      mensagemSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
+                      msgSucesso.setAttribute 'class', 'mensagem-sucesso exibe'
                     return
                 else
-                  campoMensagem.focus()
-                  campoMensagem.setAttribute 'class', 'erro'
+                  cMsg.focus()
+                  cMsg.setAttribute 'class', 'erro'
               else
-                campoLoja.focus()
-                campoLoja.setAttribute 'class', 'erro'
+                cLoja.focus()
+                cLoja.setAttribute 'class', 'erro'
             else
-              campoEmail.focus()
-              campoEmail.setAttribute 'class', 'erro'
+              cEmail.focus()
+              cEmail.setAttribute 'class', 'erro'
           else
-            campoNome.focus()
-            campoNome.setAttribute 'class', 'erro'
+            cNome.focus()
+            cNome.setAttribute 'class', 'erro'
 
           if evt.preventDefault
             evt.preventDefault()
