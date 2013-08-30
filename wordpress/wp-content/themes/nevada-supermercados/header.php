@@ -2,9 +2,9 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="keywords" content="nevada supermercado, maua, mercado em maua, supermercado zaira, supermercado esperança, compras, maua sp, comprar em maua, mercado zaira, mercado nevada, nevada supermercados" />
+    <meta name="description" content="Este é o website do Nevada Supermercados. Seja bem-vindo e aproveite para nos conhecer." />
+    <meta name="author" content="Grupo Mauá e Região de Comunicação" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Monda" />
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.min.css" />
     <!--[if IE 8]>
