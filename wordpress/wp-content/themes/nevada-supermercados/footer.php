@@ -43,7 +43,7 @@
     </div> <!-- # layout960px -->
 
     <?php wp_footer(); ?>
-    <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.min.js"></script>
     
     <!-- Google -->
     <script>
