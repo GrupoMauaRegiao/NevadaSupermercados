@@ -1,6 +1,7 @@
 <?php
   $camposOferta = array(
     "Imagem OFERTA",
+    "MEDIDA (kg, g, dz, un, ..., etc.)",
     "Preço OFERTA"
   );
 ?>
@@ -33,6 +34,9 @@
         <div class="informacao">
           <div class="nome-produto">
             <p title="<?php the_title(); ?>"><?php the_title(); ?></p>
+          </div>
+          <div class="medida">
+            <p><?php echo get_post_meta($post->ID, $camposOferta[1], true); ?></p>
           </div>
           <div class="preco">
             <p><span>R$</span> <?php echo get_post_meta($post->ID, $camposOferta[1], true); ?></p>

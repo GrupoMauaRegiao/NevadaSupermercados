@@ -1,4 +1,4 @@
-<?php 
+<?php
   $campoBanner = array(
     "Imagem BANNER"
   );
@@ -100,7 +100,7 @@
         <div class="campanha1">
           <div class="mais-informacoes">
             <p>Com frutas, verduras e legumes de ótima qualidade para você!</p>
-            <p>Nas compras acima de R$30,00 você ganha um brinde de nosso 
+            <p>Nas compras acima de R$ 15,00 você ganha um brinde de nosso 
             hortifruti, venha conferir!</p>
           </div>
           <div class="aba"></div>
