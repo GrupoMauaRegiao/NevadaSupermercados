@@ -39,7 +39,7 @@
             <p><?php echo get_post_meta($post->ID, $camposOferta[1], true); ?></p>
           </div>
           <div class="preco">
-            <p><span>R$</span> <?php echo get_post_meta($post->ID, $camposOferta[1], true); ?></p>
+            <p><span>R$</span> <?php echo get_post_meta($post->ID, $camposOferta[2], true); ?></p>
           </div>
         </div>
       </div>
