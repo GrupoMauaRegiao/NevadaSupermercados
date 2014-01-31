@@ -564,5 +564,4 @@ do ->
 
 window.onload = ->
   Apps.ajustarWidthSubmenu()
-  # Apps.exibirPagina()
   return
