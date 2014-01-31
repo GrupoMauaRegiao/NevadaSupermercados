@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/imagens/favicon.ico" />
     <title><?php bloginfo('name'); ?> <?php if (!is_home()): ?> &#8212; <?php echo ucwords(get_the_title()); ?><?php endif; ?></title>
   </head>
-  <body class="precarregar">
+  <body>
 
     <div class="barra-superior"></div>
 

@@ -29,19 +29,6 @@ Nevada.apps =
   converterSegParaMili: (tempoSegundos) ->
     tempoSegundos * 1000
 
-  carregarScripts: ->
-    scripts = document.getElementsByTagName('script')[0]
-    _carregar = (url) ->
-      script = document.createElement 'script'
-      script.async = true
-      script.src = url
-      scripts.parentNode.insertBefore script, scripts
-      return
-
-    # Lista de scripts
-    _carregar 'http://e.issuu.com/embed.js'
-    return
-
   removerBackgroundMenu: ->
     menuChildren = document.querySelectorAll('.menu')[0]
     lis = menuChildren.querySelectorAll 'li'
@@ -163,15 +150,6 @@ Nevada.apps =
           texto = item.innerText
           if texto.length > maxCaract
             item.innerText = texto.slice(0, maxCaract) + '...'
-    return
-
-  configIdIssuu: ->
-    embed = document.querySelector '.issuuembed'
-
-    if embed
-      link = embed.getAttribute 'data-configid'
-      id = link.match /0\/[0-9]*/g
-      embed.setAttribute 'data-configid', id[0]
     return
 
   configIdYouTube: ->
@@ -463,49 +441,9 @@ Nevada.apps =
         item.style.width = w + 'px'
     return
 
-  transicaoPaginas: ->
-    pagina = document.body
-    links = document.querySelectorAll '.menu a'
-
-    _animacao_ie8 = (evt) ->
-      _this = evt.srcElement
-      interval = setInterval ->
-        window.location = _this.href
-        return
-      , 1500
-      return
-
-    _animacao = (evt) ->
-      _this = this
-      pagina.style.opacity = 0
-      interval = setInterval ->
-        window.location = _this.getAttribute 'href'
-        return
-      , 1500
-
-      if evt.preventDefault
-        evt.preventDefault()
-      else
-        # IE < 9
-        evt.returnValue = false
-      return
-
-    for item in links by 1
-      if item.addEventListener
-        item.addEventListener 'click', _animacao
-      else
-        # IE < 9
-        item.attachEvent 'onclick', _animacao_ie8
-    return
-
   exibirPagina: ->
     pagina = document.body
     pagina.style.opacity = 1
-    return
-
-  removerLoading: ->
-    pagina = document.body
-    pagina.setAttribute 'class', ''
     return
 
   enviarEmail: ->
@@ -606,13 +544,10 @@ Nevada.apps =
 Apps = Nevada.apps
 do ->
   Apps.indexOf()
-  Apps.transicaoPaginas()
-  Apps.carregarScripts()
   Apps.removerBackgroundMenu()
   Apps.ajustarBackground()
   Apps.controlarTamanhoString '.nome-produto p', 25
   Apps.slider()
-  Apps.configIdIssuu()
   Apps.configIdYouTube()
   Apps.animBarraSup()
   Apps.animFilterProprietarios()
@@ -629,6 +564,5 @@ do ->
 
 window.onload = ->
   Apps.ajustarWidthSubmenu()
-  Apps.removerLoading()
-  Apps.exibirPagina()
+  # Apps.exibirPagina()
   return

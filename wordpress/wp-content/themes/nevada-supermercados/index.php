@@ -67,9 +67,8 @@
         <div class="jornal">
           <?php query_posts("order=DESC&posts_per_page=1&category_name=Jornal"); ?>
             <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-              <div
-                class="issuuembed"
-                data-configid="<?php echo get_post_meta($post->ID, $campoJornal[0], true); ?>">
+              <div class="issuuembed">
+                <?php echo get_post_meta($post -> ID, $campoJornal[0], true); ?>
               </div>
             <?php endwhile; else: ?>
           <?php endif; ?>
