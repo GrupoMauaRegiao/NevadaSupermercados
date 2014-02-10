@@ -27,8 +27,8 @@
               </ul>
             </li>
             <li>
-              <a target="_blank" href="https://www.facebook.com/nevadasupermercados">Siga-nos</a>
-              <a target="_blank" href="https://www.facebook.com/nevadasupermercados">
+              <a target="_blank" href="https://www.facebook.com/pages/Nevada-Supermercados/276473999052869">Siga-nos</a>
+              <a target="_blank" href="https://www.facebook.com/pages/Nevada-Supermercados/276473999052869">
                 <div class="icone-facebook"></div>
               </a>
             </li>
