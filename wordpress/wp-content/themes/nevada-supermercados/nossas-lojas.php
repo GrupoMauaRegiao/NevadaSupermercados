@@ -65,7 +65,7 @@
     Zaíra. "Trabalhamos todos juntos, cada irmão cuida de uma loja. 
     Assim nos desenvolvemos, como uma grande família", diz.</p>
 
-    <p>Hoje, após 32 anos, estão com cinco lojas. Para fortalecer ainda mais a 
+    <p>Hoje, após 34 anos, estão com cinco lojas. Para fortalecer ainda mais a 
     marca, agora todas as lojas formam o Grupo Nevada de Supermercados, 
     uma empresa sólida que emprega diretamente mais de 450 pessoas.</p>
   </div>
