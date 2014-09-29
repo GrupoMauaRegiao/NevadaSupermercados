@@ -92,7 +92,7 @@
         <p>
           <span class="grande">Loja 5</span><br />
           Rua José Moreira, 471<br /> Jardim Esperança - Mauá - SP.<br />
-          Fone <span class="pequeno">+55 11</span> 4576 1577 | 4576 5677
+          Fone <span class="pequeno">+55 11</span> 4576 1577 | 4578 4187
         </p>
       </span>
     </div>
