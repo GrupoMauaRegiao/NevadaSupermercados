@@ -99,28 +99,32 @@
         <div class="campanha1">
           <div class="mais-informacoes">
             <p>Com frutas, verduras e legumes de ótima qualidade para você!</p>
-            <p>Nas compras acima de R$ 20,00 você ganha um brinde de nosso 
+            <p>Nas compras acima de R$ 20,00 você ganha um brinde de nosso
             hortifruti, venha conferir!</p>
           </div>
           <div class="aba"></div>
         </div>
-        
+
         <div class="campanha2">
           <div class="mais-informacoes">
-            <p>Ofertas arrasadoras do nosso setor de açougue!</p>
+            <p>
+              Os melhores e mais deliciosos produtos de nossa padaria,
+              com um preço pra lá de imperdível!
+            </p>
           </div>
           <div class="aba"></div>
         </div>
 
         <div class="campanha3">
           <div class="mais-informacoes">
-            <p>Os melhores e mais deliciosos produtos de nossa padaria,
-            com um preço pra lá de imperdível!</p>
+            <p>
+              Ofertas arrasadoras do nosso setor de açougue!
+            </p>
           </div>
           <div class="aba"></div>
         </div>
       </div>
-      
+
       <a href="<?php bloginfo('url'); ?>/produtos-e-servicos/cartao-da-loja">
         <div class="display-cartao">
           <div class="cartao"></div>
