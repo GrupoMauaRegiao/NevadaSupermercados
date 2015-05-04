@@ -26,7 +26,18 @@
           <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
             <?php $i = $wp_query->current_post; ?>
             <div class="slide <?php echo $cssClassesSlides[$i]; ?>">
-              <img src="<?php echo get_post_meta($post->ID, $campoBanner[0], true); ?>" alt="" />
+
+              <?php  if (get_post_meta($post -> ID, 'link-externo', true)): ?>
+
+                <a href="<?php echo get_post_meta($post -> ID, 'link-externo', true); ?>" target="_blank">
+                  <img src="<?php echo get_post_meta($post->ID, $campoBanner[0], true); ?>" alt="" />
+                </a>
+
+              <?php else: ?>
+
+                <img src="<?php echo get_post_meta($post->ID, $campoBanner[0], true); ?>" alt="" />
+
+              <?php endif; ?>
             </div>
           <?php endwhile; else: ?>
         <?php endif; ?>
